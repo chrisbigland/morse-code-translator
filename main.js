@@ -43,6 +43,7 @@ const output = document.querySelector(".output");
 const translation = new Translator();
 let lettersArr = [];
 let splitWord = "";
+let morseLettersArr = [];
 
 input.addEventListener("input", () => {
   splitWord = input.value.split("");
@@ -57,11 +58,10 @@ const translate = () => {
     translation.translateLetter(letter);
     output.innerHTML = morseLettersArr.join("");
   });
+  morseLettersArr = [];
 };
 
 translBtn.addEventListener("click", translate);
-
-let morseLettersArr = [];
 
 // create a method to transl
 // translation.translateLetter("c"); // later insert letter dynamically from the DOM - event listener
@@ -80,10 +80,6 @@ const testing123 = translateWord(morseLettersArr);
 
 // event listener to run translate function when hitting 'translate' button
 // const translatedLetter =
-
-// console.log(translatedLetter);
-console.log(morseLettersArr);
-console.log(translatedWord);
 
 const updateHtml = () => {
   console.log(`this works`);
@@ -138,8 +134,9 @@ const updateHtml = () => {
 // The logic for translating both ways won’t be exactly the same but some methods may be similar enough that you might be able to create a base class to extend from in order to share logic between the two translators (Morse => English, English => Morse).
 
 //ACTIONS
-// consider how to store morse characters in JS to make translation easier
-// make EN to morse first, then morse to EN, then allow HTML input
+// morse to EN
+// stylings
+// allow for uppercase input
 
 // Morse code - event listener that can tell how long someone has spent clicking on a button for? i.e. 10miliseconds = dot,
 
