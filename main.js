@@ -45,15 +45,28 @@ class Translator {
   }
 }
 
-const input = document.querySelector("#input");
-const submit = document.querySelector("#submit");
+//VARIABLES
+const input = document.querySelector("#input1");
+const translBtn = document.querySelector("#btn");
+const output = document.querySelector(".output");
+const translation = new Translator();
+let lettersArr = [];
+let splitWord = "";
 
-console.log(input.value);
+input.addEventListener("input", () => {
+  splitWord = input.value.split("");
+  return splitWord;
+});
+
 // submit.addEventListener("click", updateHtml());
 
-let morseLettersArr = [];
+const translate = () => {
+  console.log("translate function activated upon click");
+};
 
-const translation = new Translator();
+translBtn.addEventListener("click", translate);
+
+let morseLettersArr = [];
 
 // create a method to transl
 translation.translateLetter("c"); // later insert letter dynamically from the DOM - event listener
