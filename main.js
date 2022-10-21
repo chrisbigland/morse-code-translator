@@ -28,15 +28,6 @@ class Translator {
     this.z = "--..";
   }
 
-  //   constructor(letter1, letter2, letter3) {
-  //     this.letter1 = letter1;
-  //     this.letter2 = letter2;
-  //     this.letter3 = letter3;
-  //   }
-
-  //   createWord() {
-  //     const word = `${this.letter1}${this.letter2}${this.letter3}`;
-  //   }
   translateLetter(letter) {
     const translatedLetter = this[letter];
     // console.log(translatedLetter);
@@ -61,7 +52,11 @@ input.addEventListener("input", () => {
 // submit.addEventListener("click", updateHtml());
 
 const translate = () => {
-  console.log("translate function activated upon click");
+  console.log(`translate function activated`);
+  splitWord.forEach((letter) => {
+    translation.translateLetter(letter);
+    output.innerHTML = morseLettersArr.join("");
+  });
 };
 
 translBtn.addEventListener("click", translate);
@@ -69,9 +64,9 @@ translBtn.addEventListener("click", translate);
 let morseLettersArr = [];
 
 // create a method to transl
-translation.translateLetter("c"); // later insert letter dynamically from the DOM - event listener
-translation.translateLetter("a");
-translation.translateLetter("b");
+// translation.translateLetter("c"); // later insert letter dynamically from the DOM - event listener
+// translation.translateLetter("a");
+// translation.translateLetter("b");
 // translation.translateWord(morseLettersArr);
 
 const translateWord = (arr) => {
