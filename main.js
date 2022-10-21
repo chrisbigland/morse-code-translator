@@ -29,8 +29,13 @@ class Translator {
   }
 
   translateLetter(letter) {
-    const translatedLetter = this[letter];
-    // console.log(translatedLetter);
+    let translatedLetter = "";
+    if (letter != " ") {
+      translatedLetter = this[letter];
+    } else {
+      translatedLetter = " ";
+    }
+    console.log(translatedLetter);
     morseLettersArr.push(translatedLetter);
     return translatedLetter;
   }
@@ -46,6 +51,7 @@ let splitWord = "";
 let morseLettersArr = [];
 
 input.addEventListener("input", () => {
+  console.log(splitWord);
   splitWord = input.value.split("");
   return splitWord;
 });
