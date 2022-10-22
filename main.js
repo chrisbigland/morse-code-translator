@@ -155,6 +155,7 @@ const updateHtml = () => {
 // morse to EN
 // stylings
 // allow for uppercase input
+// make it so that it doesn't just translate the recognised symbols - if unknown symbols exist - alert perhaps
 
 // Morse code - event listener that can tell how long someone has spent clicking on a button for? i.e. 10miliseconds = dot,
 

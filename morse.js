@@ -31,6 +31,29 @@ class Translator {
       [".-", "a"],
       ["-...", "b"],
       ["-.-.", "c"],
+      ["-..", "d"],
+      [".", "e"],
+      ["..-.", "f"],
+      ["--.", "g"],
+      ["....", "h"],
+      ["..", "i"],
+      [".---", "j"],
+      ["-.-", "k"],
+      [".-..", "l"],
+      ["--", "m"],
+      ["-.", "n"],
+      ["---", "o"],
+      [".--.", "p"],
+      ["--.-", "q"],
+      [".-.", "r"],
+      ["...", "s"],
+      ["-", "t"],
+      ["..-", "u"],
+      ["...-", "v"],
+      [".--", "w"],
+      ["-..-", "x"],
+      ["-.--", "y"],
+      ["--..", "z"],
     ];
 
     // const a = ".-";
@@ -59,12 +82,6 @@ class Translator {
           console.log(lettersArr);
         }
       }
-      //for loop here?!
-      //   morseAlphabetArr.filter((letterArr) => {
-      //   })
-      //  else {
-      //   translatedMorseChar = " ";
-      // }
       console.log(translatedMorseChar);
       enLettersArr.push(translatedMorseChar);
       return translatedMorseChar;
@@ -117,9 +134,9 @@ const translate = () => {
     // console.log(character);
     // iterates through each item and runs translateMorseChar method on it
     translation.translateMorseChar(character);
-    // output.innerHTML = morseLettersArr.join("");
+    output.innerHTML = lettersArr.join("");
   });
-  //   morseLettersArr = [];
+  lettersArr = [];
 };
 
 translBtn.addEventListener("click", translate);
