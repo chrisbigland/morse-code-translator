@@ -8,30 +8,27 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <input type="text" placeholder="Enter text/morse code here" id="input1" />
-    <input type="button" id="btn" value="click me" />
-    <p class="output"></p>
-    Morse code to English - remember to leave a space between each character and
-    two spaces between each word.
-    <br />
-    <br />
-    <div>
-      <input
-        id="en-selection"
-        type="radio"
-        name="language"
-        value="English"
-      />
-      <label for="english-selection">English</label><br />
-      <input
-        id="mo-selection"
-        type="radio"
-        name="language"
-        value="Morse-Code"
-      />
-      <label for="morse-selection">Morse Code</label><br />
+    <h1 id="heading">Morse Code Translator</h1>
+    <div id="container">
+      <input type="text" placeholder="Enter text/morse code here" id="input1" />
+      <input type="button" id="btn" value="click me" />
+      <p class="output"></p>
+      Morse code to English - remember to leave a space between each character
+      and two spaces between each word.
+      <br />
+      <br />
+      <div>
+        <input id="en-selection" type="radio" name="language" value="English" />
+        <label for="english-selection">English</label><br />
+        <input
+          id="mo-selection"
+          type="radio"
+          name="language"
+          value="Morse-Code"
+        />
+        <label for="morse-selection">Morse Code</label><br />
+      </div>
     </div>
-
     <script src="main.js"></script>
   </body>
 </html>

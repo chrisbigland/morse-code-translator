@@ -1,31 +1,31 @@
 class Translator {
   constructor() {
-    this.a = ".-";
-    this.b = "-...";
-    this.c = "-.-.";
-    this.d = "-..";
-    this.e = ".";
-    this.f = "..-.";
-    this.g = "--.";
-    this.h = "....";
-    this.i = "..";
-    this.j = ".---";
-    this.k = "-.-";
-    this.l = ".-..";
-    this.m = "--";
-    this.n = "-.";
-    this.o = "---";
-    this.p = ".--.";
-    this.q = "--.-";
-    this.r = ".-.";
-    this.s = "...";
-    this.t = "-";
-    this.u = "..-";
-    this.v = "...-";
-    this.w = ".--";
-    this.x = "-..-";
-    this.y = "-.--";
-    this.z = "--..";
+    this.a = " .-";
+    this.b = " -...";
+    this.c = " -.-.";
+    this.d = " -..";
+    this.e = " .";
+    this.f = " ..-.";
+    this.g = " --.";
+    this.h = " ....";
+    this.i = " ..";
+    this.j = " .---";
+    this.k = " -.-";
+    this.l = " .-..";
+    this.m = " --";
+    this.n = " -.";
+    this.o = " ---";
+    this.p = " .--.";
+    this.q = " --.-";
+    this.r = " .-.";
+    this.s = " ...";
+    this.t = " -";
+    this.u = " ..-";
+    this.v = " ...-";
+    this.w = " .--";
+    this.x = " -..-";
+    this.y = " -.--";
+    this.z = " --..";
   }
 
   translateLetter(letter) {
@@ -62,18 +62,18 @@ let lettersArr = [];
 let splitWord = "";
 let morseLettersArr = [];
 
-  input.addEventListener("input", () => {
-    console.log(splitWord);
-    splitWord = input.value.split("");
-    return splitWord;
-  });
+input.addEventListener("input", () => {
+  console.log(splitWord);
+  splitWord = input.value.split("");
+  return splitWord;
+});
 
 // submit.addEventListener("click", updateHtml());
 
 const translate = () => {
   console.log(`translate function activated`);
   splitWord.forEach((letter) => {
-    translation.translateLetter(letter);
+    translation.translateLetter(letter.toLowerCase());
     output.innerHTML = morseLettersArr.join("");
   });
   morseLettersArr = [];
@@ -154,8 +154,9 @@ const updateHtml = () => {
 //ACTIONS
 // morse to EN
 // stylings
-// allow for uppercase input
+// allow for uppercase input - convert to lowercase when it gets entered
 // make it so that it doesn't just translate the recognised symbols - if unknown symbols exist - alert perhaps
+//insert a space for the letters
 
 // Morse code - event listener that can tell how long someone has spent clicking on a button for? i.e. 10miliseconds = dot,
 
