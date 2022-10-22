@@ -46,15 +46,27 @@ const input = document.querySelector("#input1");
 const translBtn = document.querySelector("#btn");
 const output = document.querySelector(".output");
 const translation = new Translator();
+const selection = document.querySelectorAll(".selection");
+const enSelection = document.querySelector("#en-selection");
+const moSelection = document.querySelector("#mo-selection");
+
+// if (enSelection.checked) {
+//   console.log("en is checked");
+// }
+
+// if (moSelection.checked) {
+//   console.log("mo is checked");
+// }
+
 let lettersArr = [];
 let splitWord = "";
 let morseLettersArr = [];
 
-input.addEventListener("input", () => {
-  console.log(splitWord);
-  splitWord = input.value.split("");
-  return splitWord;
-});
+  input.addEventListener("input", () => {
+    console.log(splitWord);
+    splitWord = input.value.split("");
+    return splitWord;
+  });
 
 // submit.addEventListener("click", updateHtml());
 
