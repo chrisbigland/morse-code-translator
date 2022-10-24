@@ -62,7 +62,7 @@ class Translator {
     if (letter != " ") {
       translatedLetter = this[letter];
     } else {
-      translatedLetter = "  ";
+      translatedLetter = "/";
     }
     console.log(translatedLetter);
     morseLettersArr.push(translatedLetter);
@@ -73,25 +73,17 @@ class Translator {
   translateMorseChar(morseChar) {
     let translatedMorseChar = "";
     if (morseChar != " ") {
-      console.log(morseChar);
-      console.log("not a space and ready to run"); // runs if the character is not a space
+      // runs if the character is not a space
       for (let i = 0; i < this.morseAlphabetArr.length; i++) {
         // loops through the alphabet array of arrays
         if (this.morseAlphabetArr[i][0] === morseChar) {
-          console.log("it matches!!!");
           // if the first index of each array contains the character, we add the second index of that array to the lettersArr.
-          // just need to change what's in the brackets to make it dynamic
           lettersArr.push(this.morseAlphabetArr[i][1]);
-          //   console.log(this.morseAlphabetArr[i][1]);
-          //   console.log(lettersArr);
         }
       }
       if (morseChar === "") {
-        console.log("it is a space");
         lettersArr.push(" ");
-        console.log(lettersArr);
       }
-      //   console.log(translatedMorseChar);
       return translatedMorseChar;
     }
   }
@@ -116,12 +108,13 @@ let splitMorseChar = "";
 // for (let i = 0; i > )
 // dotSound.play();
 
+enSelection.checked = true;
+
 let lettersArr = [];
 let splitWord = "";
 let morseLettersArr = [];
 
 // EN => MO FUNCTIONALITY
-
 input.addEventListener("input", () => {
   console.log(splitWord);
   splitWord = input.value.split("");
@@ -129,7 +122,7 @@ input.addEventListener("input", () => {
 });
 
 const translateEnToMo = () => {
-  console.log(`translate function activated`);
+  console.log(`translate en to mo function activated`);
   splitWord.forEach((letter) => {
     translation.translateLetter(letter.toLowerCase());
     output.innerHTML = morseLettersArr.join(" ");
@@ -137,24 +130,52 @@ const translateEnToMo = () => {
   morseLettersArr = [];
 };
 
-translBtn.addEventListener("click", translateEnToMo);
+///////////
+
+const chooseTranslation = () => {
+  if (enSelection.checked) {
+    translateEnToMo();
+  } else {
+    translateMotoEn();
+  }
+};
+///////////
+
+translBtn.addEventListener("click", chooseTranslation);
 
 // MO => EN FUNCTIONALITY
 dotBtn.addEventListener("click", () => {
-  console.log("dotbtn works");
   input.value += ".";
 });
 
 dashBtn.addEventListener("click", () => {
-  console.log("dashbtn works");
   input.value += "-";
+});
+
+const translateMotoEn = () => {
+  // run when button is clicked.
+  console.log(`translate mo to en function activated`);
+  splitMorseChar.forEach((character) => {
+    // console.log(character);
+    // iterates through each item and runs translateMorseChar method on it
+    translation.translateMorseChar(character);
+    output.innerHTML = lettersArr.join("");
+  });
+  lettersArr = [];
+};
+
+input.addEventListener("input", () => {
+  console.log(splitMorseChar);
+  splitMorseChar = input.value.split(" "); // splitMorseChar turns into an array - each symbol is an item
+  return splitMorseChar;
 });
 
 //ACTIONS
 // stylings
-
+// move functions into class as methods
 // make it so that it doesn't just translate the recognised symbols - if unknown symbols exist - alert perhaps
 //insert a space for the letters
 // merge two translators together - use an extender?
+// warning message if unexpected symbols received.
 
 // Morse code - event listener that can tell how long someone has spent clicking on a button for? i.e. 10miliseconds = dot, or buttons with a - and a .
