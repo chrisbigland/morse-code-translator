@@ -26,6 +26,35 @@ class Translator {
     this.x = " -..-";
     this.y = " -.--";
     this.z = " --..";
+
+    this.morseAlphabetArr = [
+      [".-", "a"],
+      ["-...", "b"],
+      ["-.-.", "c"],
+      ["-..", "d"],
+      [".", "e"],
+      ["..-.", "f"],
+      ["--.", "g"],
+      ["....", "h"],
+      ["..", "i"],
+      [".---", "j"],
+      ["-.-", "k"],
+      [".-..", "l"],
+      ["--", "m"],
+      ["-.", "n"],
+      ["---", "o"],
+      [".--.", "p"],
+      ["--.-", "q"],
+      [".-.", "r"],
+      ["...", "s"],
+      ["-", "t"],
+      ["..-", "u"],
+      ["...-", "v"],
+      [".--", "w"],
+      ["-..-", "x"],
+      ["-.--", "y"],
+      ["--..", "z"],
+    ];
   }
 
   translateLetter(letter) {
@@ -39,6 +68,32 @@ class Translator {
     morseLettersArr.push(translatedLetter);
     console.log(morseLettersArr);
     return translatedLetter;
+  }
+
+  translateMorseChar(morseChar) {
+    let translatedMorseChar = "";
+    if (morseChar != " ") {
+      console.log(morseChar);
+      console.log("not a space and ready to run"); // runs if the character is not a space
+      for (let i = 0; i < this.morseAlphabetArr.length; i++) {
+        // loops through the alphabet array of arrays
+        if (this.morseAlphabetArr[i][0] === morseChar) {
+          console.log("it matches!!!");
+          // if the first index of each array contains the character, we add the second index of that array to the lettersArr.
+          // just need to change what's in the brackets to make it dynamic
+          lettersArr.push(this.morseAlphabetArr[i][1]);
+          //   console.log(this.morseAlphabetArr[i][1]);
+          //   console.log(lettersArr);
+        }
+      }
+      if (morseChar === "") {
+        console.log("it is a space");
+        lettersArr.push(" ");
+        console.log(lettersArr);
+      }
+      //   console.log(translatedMorseChar);
+      return translatedMorseChar;
+    }
   }
 }
 
@@ -55,6 +110,9 @@ const dashBtn = document.querySelector("#dash-btn");
 const soundBtn = document.querySelector("#sound-btn");
 const dotSound = document.querySelector("#dot-sound");
 
+let codesArr = [];
+let splitMorseChar = "";
+
 // for (let i = 0; i > )
 // dotSound.play();
 
@@ -62,6 +120,26 @@ let lettersArr = [];
 let splitWord = "";
 let morseLettersArr = [];
 
+// EN => MO FUNCTIONALITY
+
+input.addEventListener("input", () => {
+  console.log(splitWord);
+  splitWord = input.value.split("");
+  return splitWord;
+});
+
+const translateEnToMo = () => {
+  console.log(`translate function activated`);
+  splitWord.forEach((letter) => {
+    translation.translateLetter(letter.toLowerCase());
+    output.innerHTML = morseLettersArr.join(" ");
+  });
+  morseLettersArr = [];
+};
+
+translBtn.addEventListener("click", translateEnToMo);
+
+// MO => EN FUNCTIONALITY
 dotBtn.addEventListener("click", () => {
   console.log("dotbtn works");
   input.value += ".";
@@ -71,31 +149,6 @@ dashBtn.addEventListener("click", () => {
   console.log("dashbtn works");
   input.value += "-";
 });
-
-input.addEventListener("input", () => {
-  console.log(splitWord);
-  splitWord = input.value.split("");
-  return splitWord;
-});
-
-const translate = () => {
-  console.log(`translate function activated`);
-  splitWord.forEach((letter) => {
-    translation.translateLetter(letter.toLowerCase());
-    output.innerHTML = morseLettersArr.join(" ");
-  });
-  morseLettersArr = [];
-};
-
-translBtn.addEventListener("click", translate);
-
-const translateWord = (arr) => {
-  // takes the array of translated letters and returns the word
-  translatedWord = arr.join("");
-  return translatedWord;
-};
-
-let translatedWord = "";
 
 //ACTIONS
 // stylings

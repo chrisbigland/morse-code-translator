@@ -105,7 +105,7 @@ input.addEventListener("input", () => {
   return splitMorseChar;
 });
 
-const translate = () => {
+const translateMotoEn = () => {
   // run when button is clicked.
   console.log(`translate function activated`);
   splitMorseChar.forEach((character) => {
@@ -117,4 +117,4 @@ const translate = () => {
   lettersArr = [];
 };
 
-translBtn.addEventListener("click", translate);
+translBtn.addEventListener("click", translateMotoEn);
