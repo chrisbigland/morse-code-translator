@@ -50,18 +50,33 @@ const translation = new Translator();
 const selection = document.querySelectorAll(".selection");
 const enSelection = document.querySelector("#en-selection");
 const moSelection = document.querySelector("#mo-selection");
+const dotBtn = document.querySelector("#dot-btn");
+const dashBtn = document.querySelector("#dash-btn");
+const soundBtn = document.querySelector("#sound-btn");
+const dotSound = document.querySelector("#dot-sound");
+
+// for (let i = 0; i > )
+// dotSound.play();
 
 let lettersArr = [];
 let splitWord = "";
 let morseLettersArr = [];
+
+dotBtn.addEventListener("click", () => {
+  console.log("dotbtn works");
+  input.value += ".";
+});
+
+dashBtn.addEventListener("click", () => {
+  console.log("dashbtn works");
+  input.value += "-";
+});
 
 input.addEventListener("input", () => {
   console.log(splitWord);
   splitWord = input.value.split("");
   return splitWord;
 });
-
-// submit.addEventListener("click", updateHtml());
 
 const translate = () => {
   console.log(`translate function activated`);
@@ -89,4 +104,4 @@ let translatedWord = "";
 //insert a space for the letters
 // merge two translators together - use an extender?
 
-// Morse code - event listener that can tell how long someone has spent clicking on a button for? i.e. 10miliseconds = dot,
+// Morse code - event listener that can tell how long someone has spent clicking on a button for? i.e. 10miliseconds = dot, or buttons with a - and a .
