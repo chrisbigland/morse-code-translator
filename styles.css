@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
 
-#input {
-    font-size: 1rem;
+#input1 {
+    font-size: 2rem;
+    width: 80vw;
+    height: 20vh;
 }
 
 #heading {
@@ -13,4 +15,8 @@
 #container {
     display: flex;
     flex-direction: column;
+}
+
+#btn {
+    width: 100px;
 }
