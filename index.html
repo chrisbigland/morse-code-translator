@@ -9,33 +9,38 @@
   </head>
   <body>
     <h1 id="heading">Morse Code Translator</h1>
-    <div id="container">
+    <div id="input-container">
       <input type="text" placeholder="Enter text/morse code here" id="input1" />
+    </div>
+    <div id="btns-1">
       <input type="button" id="transl-btn" class="btn" value="Translate" />
-      <p class="output"></p>
+      <button id="sound-output" class="btn">Hear Morse Code</button>
+    </div>
+    <p class="output"></p>
+    <div id="btns-2">
       <button id="dash-btn" class="btn">-</button>
       <button id="dot-btn" class="btn">.</button>
-      <button id="sound-output" class="btn">Hear Morse Code</button>
-      <audio src="dot-sound.m4a" id="dot-sound"></audio>
-      <p>
-        If typing morse code, leave a space between each character and two
-        spaces between each word.
-      </p>
-      <br />
-      <br />
-      <div>
-        <input id="en-selection" type="radio" name="language" value="English" />
-        <label for="english-selection">English</label><br />
-        <input
-          id="mo-selection"
-          type="radio"
-          name="language"
-          value="Morse-Code"
-        />
-        <label for="morse-selection">Morse Code</label><br />
+    </div>
 
-        <button id="test-button">TEST HERE</button>
-      </div>
+    <audio src="dot-sound.m4a" id="dot-sound"></audio>
+    <p id="info">
+      If typing morse code, leave a space between each character and two spaces
+      between each word.
+    </p>
+    <br />
+    <br />
+    <div id="radio-selections">
+      <input id="en-selection" type="radio" name="language" value="English" />
+      <label for="english-selection">English</label><br />
+      <input
+        id="mo-selection"
+        type="radio"
+        name="language"
+        value="Morse-Code"
+      />
+      <label for="morse-selection">Morse Code</label><br />
+
+      <button id="test-button">TEST HERE</button>
     </div>
     <script src="main.js" type="module"></script>
   </body>

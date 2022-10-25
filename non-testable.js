@@ -11,4 +11,4 @@ export const dotSound = document.querySelector("#dot-sound");
 const testButton = document.querySelector("#test-button");
 import { testButtonTest } from "./main.js";
 
-testButton.addEventListener("click", testButtonTest);
+// testButton.addEventListener("click", testButtonTest);

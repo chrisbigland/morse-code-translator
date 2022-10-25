@@ -10,6 +10,7 @@ import {
   soundBtn,
   dotSound,
 } from "./non-testable.js";
+// import "./non-testable.js";
 
 class Translator {
   constructor() {
@@ -159,6 +160,7 @@ translBtn.addEventListener("click", translation.chooseTranslation);
 // MO => EN FUNCTIONALITY
 dotBtn.addEventListener("click", () => {
   input.value += ".";
+  //add to the splitMorseChar when I click? How would I delete though if this was removed
 });
 
 dashBtn.addEventListener("click", () => {
