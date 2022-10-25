@@ -11,11 +11,11 @@
     <h1 id="heading">Morse Code Translator</h1>
     <div id="container">
       <input type="text" placeholder="Enter text/morse code here" id="input1" />
-      <input type="button" id="btn" value="Translate" />
+      <input type="button" id="transl-btn" class="btn" value="Translate" />
       <p class="output"></p>
-      <button id="dash-btn">-</button>
-      <button id="dot-btn">.</button>
-      <button id="sound-output">Hear Morse Code</button>
+      <button id="dash-btn" class="btn">-</button>
+      <button id="dot-btn" class="btn">.</button>
+      <button id="sound-output" class="btn">Hear Morse Code</button>
       <audio src="dot-sound.m4a" id="dot-sound"></audio>
       <p>
         If typing morse code, leave a space between each character and two
@@ -33,8 +33,10 @@
           value="Morse-Code"
         />
         <label for="morse-selection">Morse Code</label><br />
+
+        <button id="test-button">TEST HERE</button>
       </div>
     </div>
-    <script src="main.js"></script>
+    <script src="main.js" type="module"></script>
   </body>
 </html>

@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
+
+#input1 {
+    font-size: 2rem;
+    width: 80vw;
+    height: 20vh;
+}
+
+#heading {
+    color:burlywood;
+    text-align: center;
+    font-family: Fasthand;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    width: 100px;
+}

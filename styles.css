@@ -1,26 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Fasthand&display=swap");
 #input1 {
-    font-size: 2rem;
-    width: 80vw;
-    height: 20vh;
+  font-size: 2rem;
+  width: 80vw;
+  height: 20vh;
 }
 
 #heading {
-    color:burlywood;
-    text-align: center;
-    font-family: Fasthand;
+  color: burlywood;
+  text-align: center;
+  font-family: Fasthand;
 }
 
 #container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-#btn {
-    width: 100px;
-}
-
-#dash-btn, #dot-btn, #sound-output {
-    width: 100px;
+.btn {
+  width: 100px;
 }

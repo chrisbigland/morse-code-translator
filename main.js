@@ -1,3 +1,16 @@
+import {
+  input,
+  translBtn,
+  output,
+  selection,
+  enSelection,
+  moSelection,
+  dotBtn,
+  dashBtn,
+  soundBtn,
+  dotSound,
+} from "./non-testable.js";
+
 class Translator {
   constructor() {
     this.a = " .-";
@@ -87,21 +100,41 @@ class Translator {
       return translatedMorseChar;
     }
   }
+  translateEnToMo() {
+    // IF STATEMENT HERE FOR WARNING IF WRONG CHARACTERS ENTERED.
+    console.log(`translate en to mo function activated`);
+    splitWord.forEach((letter) => {
+      translation.translateLetter(letter.toLowerCase());
+      output.innerHTML = morseLettersArr.join(" ");
+    });
+    morseLettersArr = [];
+  }
+
+  translateMotoEn() {
+    console.log(`translate mo to en function activated`);
+    splitMorseChar.forEach((character) => {
+      // iterates through each item and runs translateMorseChar method on it
+      translation.translateMorseChar(character);
+      output.innerHTML = lettersArr.join("");
+    });
+    lettersArr = [];
+  }
+
+  chooseTranslation() {
+    if (enSelection.checked) {
+      translation.translateEnToMo();
+    } else {
+      translation.translateMotoEn();
+    }
+  }
 }
 
-//VARIABLES
-const input = document.querySelector("#input1");
-const translBtn = document.querySelector("#btn");
-const output = document.querySelector(".output");
-const translation = new Translator();
-const selection = document.querySelectorAll(".selection");
-const enSelection = document.querySelector("#en-selection");
-const moSelection = document.querySelector("#mo-selection");
-const dotBtn = document.querySelector("#dot-btn");
-const dashBtn = document.querySelector("#dash-btn");
-const soundBtn = document.querySelector("#sound-btn");
-const dotSound = document.querySelector("#dot-sound");
+export const testButtonTest = () => {
+  console.log("test button works");
+};
 
+//VARIABLES
+const translation = new Translator();
 let codesArr = [];
 let splitMorseChar = "";
 
@@ -121,27 +154,7 @@ input.addEventListener("input", () => {
   return splitWord;
 });
 
-const translateEnToMo = () => {
-  console.log(`translate en to mo function activated`);
-  splitWord.forEach((letter) => {
-    translation.translateLetter(letter.toLowerCase());
-    output.innerHTML = morseLettersArr.join(" ");
-  });
-  morseLettersArr = [];
-};
-
-///////////
-
-const chooseTranslation = () => {
-  if (enSelection.checked) {
-    translateEnToMo();
-  } else {
-    translateMotoEn();
-  }
-};
-///////////
-
-translBtn.addEventListener("click", chooseTranslation);
+translBtn.addEventListener("click", translation.chooseTranslation);
 
 // MO => EN FUNCTIONALITY
 dotBtn.addEventListener("click", () => {
@@ -151,18 +164,6 @@ dotBtn.addEventListener("click", () => {
 dashBtn.addEventListener("click", () => {
   input.value += "-";
 });
-
-const translateMotoEn = () => {
-  // run when button is clicked.
-  console.log(`translate mo to en function activated`);
-  splitMorseChar.forEach((character) => {
-    // console.log(character);
-    // iterates through each item and runs translateMorseChar method on it
-    translation.translateMorseChar(character);
-    output.innerHTML = lettersArr.join("");
-  });
-  lettersArr = [];
-};
 
 input.addEventListener("input", () => {
   console.log(splitMorseChar);
