@@ -1,11 +1,8 @@
-// const str1 = "abc";
-// const str2 = "def";
+const testVar = "12345";
+const newArr = [];
 
-// // console.log([...str1.match(/^abc$/)]);
+[...testVar].forEach((number) => {
+  newArr.push(number);
+});
 
-// // match searches for a string that matches the given pattern
-// // ^ is delimiter for start of word
-// // $ is delimiter for end of word
-// // returns a match object. - using spread operater we can convert this into an array.
-
-// console.log(str1.match(/^abc$/));
+console.log(newArr);

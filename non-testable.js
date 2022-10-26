@@ -1,14 +1,32 @@
-export const input = document.querySelector("#input1");
-export const translBtn = document.querySelector("#transl-btn");
-export const output = document.querySelector(".output");
-export const selection = document.querySelectorAll(".selection");
-export const enSelection = document.querySelector("#en-selection");
-export const moSelection = document.querySelector("#mo-selection");
-export const dotBtn = document.querySelector("#dot-btn");
-export const dashBtn = document.querySelector("#dash-btn");
-export const soundBtn = document.querySelector("#sound-btn");
-export const dotSound = document.querySelector("#dot-sound");
-const testButton = document.querySelector("#test-button");
-import { testButtonTest } from "./main.js";
-
+import { Translator } from "./main.js";
 // testButton.addEventListener("click", testButtonTest);
+const input = document.querySelector("#input1");
+const translBtn = document.querySelector("#transl-btn");
+const output = document.querySelector(".output");
+const selection = document.querySelectorAll(".selection");
+const enSelection = document.querySelector("#en-selection");
+const moSelection = document.querySelector("#mo-selection");
+const dotBtn = document.querySelector("#dot-btn");
+const dashBtn = document.querySelector("#dash-btn");
+const soundBtn = document.querySelector("#sound-btn");
+const dotSound = document.querySelector("#dot-sound");
+const testButton = document.querySelector("#test-button");
+
+const translator = new Translator(); // can I put this at the top with the variables?
+
+enSelection.checked = true;
+
+translBtn.addEventListener("click", (event) => {
+  const inputText = input.value;
+  const translator = new Translator(); // do I need to declare this each time?
+  let translation = "";
+  if (enSelection.checked) {
+    const enInputArr = inputText.split("");
+    translation = translator.translateEnToMo(enInputArr); // result of the function gets saved as variable
+  } else {
+    console.log("morse code radio checked");
+    const moInputArr = inputText.split(" "); // turning string into arr
+    translation = translator.translateMotoEn(moInputArr);
+  }
+  output.innerHTML = translation;
+});

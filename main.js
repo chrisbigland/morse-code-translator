@@ -1,18 +1,4 @@
-import {
-  input,
-  translBtn,
-  output,
-  selection,
-  enSelection,
-  moSelection,
-  dotBtn,
-  dashBtn,
-  soundBtn,
-  dotSound,
-} from "./non-testable.js";
-// import "./non-testable.js";
-
-class Translator {
+export class Translator {
   constructor() {
     this.a = " .-";
     this.b = " -...";
@@ -81,7 +67,19 @@ class Translator {
     console.log(translatedLetter);
     morseLettersArr.push(translatedLetter);
     console.log(morseLettersArr);
-    return translatedLetter;
+    return translatedLetter; //do I need this?
+  }
+
+  translateEnToMo(enInputArr) {
+    // IF STATEMENT HERE FOR WARNING IF WRONG CHARACTERS ENTERED.
+    let outputHtml = "";
+    console.log(`translate en to mo function activated`);
+    enInputArr.forEach((letter) => {
+      translator.translateLetter(letter.toLowerCase());
+      outputHtml = morseLettersArr.join(" ");
+    });
+    morseLettersArr = [];
+    return outputHtml;
   }
 
   translateMorseChar(morseChar) {
@@ -91,87 +89,61 @@ class Translator {
       for (let i = 0; i < this.morseAlphabetArr.length; i++) {
         // loops through the alphabet array of arrays
         if (this.morseAlphabetArr[i][0] === morseChar) {
-          // if the first index of each array contains the character, we add the second index of that array to the lettersArr.
-          lettersArr.push(this.morseAlphabetArr[i][1]);
+          // if the first index of each array contains the character, we add the second index of that array to the enLettersArr.
+          enLettersArr.push(this.morseAlphabetArr[i][1]);
         }
       }
       if (morseChar === "") {
-        lettersArr.push(" ");
+        enLettersArr.push(" ");
       }
       return translatedMorseChar;
     }
   }
-  translateEnToMo() {
-    // IF STATEMENT HERE FOR WARNING IF WRONG CHARACTERS ENTERED.
-    console.log(`translate en to mo function activated`);
-    splitWord.forEach((letter) => {
-      translation.translateLetter(letter.toLowerCase());
-      output.innerHTML = morseLettersArr.join(" ");
-    });
-    morseLettersArr = [];
-  }
 
-  translateMotoEn() {
+  translateMotoEn(moInputArr) {
     console.log(`translate mo to en function activated`);
-    splitMorseChar.forEach((character) => {
-      // iterates through each item and runs translateMorseChar method on it
-      translation.translateMorseChar(character);
-      output.innerHTML = lettersArr.join("");
-    });
-    lettersArr = [];
-  }
+    let outputHtml = "";
 
-  chooseTranslation() {
-    if (enSelection.checked) {
-      translation.translateEnToMo();
-    } else {
-      translation.translateMotoEn();
-    }
+    moInputArr.forEach((character) => {
+      // iterates through each item and runs translateMorseChar method on it
+      // const translatedMorseChars =
+      translator.translateMorseChar(character);
+      outputHtml = enLettersArr.join("");
+    });
+    enLettersArr = [];
+    return outputHtml; // return something here for the innerhtml in the event listener
   }
 }
 
-export const testButtonTest = () => {
-  console.log("test button works");
-};
+// export const testButtonTest = () => {
+//   console.log("test button works");
+// };
 
-//VARIABLES
-const translation = new Translator();
-let codesArr = [];
-let splitMorseChar = "";
+// //VARIABLES
+const translator = new Translator();
 
-// for (let i = 0; i > )
-// dotSound.play();
+// // for (let i = 0; i > )
+// // dotSound.play();
 
-enSelection.checked = true;
-
-let lettersArr = [];
+let enLettersArr = [];
 let splitWord = "";
 let morseLettersArr = [];
 
-// EN => MO FUNCTIONALITY
-input.addEventListener("input", () => {
-  console.log(splitWord);
-  splitWord = input.value.split("");
-  return splitWord;
-});
+// // MO => EN FUNCTIONALITY
+// dotBtn.addEventListener("click", () => {
+//   input.value += ".";
+//   //add to the splitMorseChar when I click? How would I delete though if this was removed
+// });
 
-translBtn.addEventListener("click", translation.chooseTranslation);
+// dashBtn.addEventListener("click", () => {
+//   input.value += "-";
+// });
 
-// MO => EN FUNCTIONALITY
-dotBtn.addEventListener("click", () => {
-  input.value += ".";
-  //add to the splitMorseChar when I click? How would I delete though if this was removed
-});
-
-dashBtn.addEventListener("click", () => {
-  input.value += "-";
-});
-
-input.addEventListener("input", () => {
-  console.log(splitMorseChar);
-  splitMorseChar = input.value.split(" "); // splitMorseChar turns into an array - each symbol is an item
-  return splitMorseChar;
-});
+// input.addEventListener("input", () => {
+//   console.log(splitMorseChar);
+//   splitMorseChar = input.value.split(" "); // splitMorseChar turns into an array - each symbol is an item
+//   return splitMorseChar;
+// });
 
 //ACTIONS
 // stylings
