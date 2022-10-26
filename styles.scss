@@ -1,28 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Fasthand&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Shalimar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 * {
-    background-color: #F6F6F6;
+    background-color: #f3eee8;
+    font-family: Oswald;
 }
 
 #input1 {
     font-size: 2rem;
     width: 80vw;
     height: 20vh;
-}
-
-#input-container {
-    display: flex;
-    justify-content: center;
+    border-radius: 10px;
+    background-color: #F6F5F1;
 }
 
 #heading {
     color:burlywood;
+    font-size: 3rem;
     text-align: center;
-    font-family: Fasthand;
+    font-family: Shalimar;
 }
 
 .btn {
     width: 100px;
+    background-color: #F6F5F1;
 }
 
 .output {
@@ -30,22 +30,7 @@
     text-align: center;
 }
 
-#btns-1 {
-    display: flex;
-    justify-content: center;
-}
-
-#dot-dash-btns {
-    display: flex;
-    justify-content: center;
-}
-
-#space-btn {
-    display: flex;
-    justify-content: center;
-}
-
-#radio-selections {
+#btns-1, #dot-dash-btns, #space-btn, #radio-selections, #input-container {
     display: flex;
     justify-content: center;
 }

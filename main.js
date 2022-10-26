@@ -71,7 +71,6 @@ export class Translator {
   }
 
   translateEnToMo(enInputArr) {
-    // IF STATEMENT HERE FOR WARNING IF WRONG CHARACTERS ENTERED.
     let outputHtml = "";
     console.log(`translate en to mo function activated`);
     enInputArr.forEach((letter) => {
@@ -115,13 +114,9 @@ export class Translator {
   }
 }
 
-// export const testButtonTest = () => {
-//   console.log("test button works");
-// };
-
-// //VARIABLES
 const translator = new Translator();
 
+// for loop on click when 'hear audio' clicked.
 // // for (let i = 0; i > )
 // // dotSound.play();
 
@@ -129,14 +124,9 @@ let enLettersArr = [];
 let splitWord = "";
 let morseLettersArr = [];
 
-// // MO => EN FUNCTIONALITY
-
-
-
-
-
 //ACTIONS
 // stylings
+// page jumps when output appears
 // move functions into class as methods
 // make it so that it doesn't just translate the recognised symbols - if unknown symbols exist - alert perhaps
 //insert a space for the letters
