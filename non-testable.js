@@ -1,5 +1,5 @@
 import { Translator } from "./main.js";
-// testButton.addEventListener("click", testButtonTest);
+
 const input = document.querySelector("#input1");
 const translBtn = document.querySelector("#transl-btn");
 const output = document.querySelector(".output");
@@ -10,7 +10,13 @@ const dotBtn = document.querySelector("#dot-btn");
 const dashBtn = document.querySelector("#dash-btn");
 const soundBtn = document.querySelector("#sound-btn");
 const dotSound = document.querySelector("#dot-sound");
-const testButton = document.querySelector("#test-button");
+
+// const playSound = () => {
+//     dotSound.play();
+// }
+// playSound()
+
+
 const spaceBtn = document.querySelector("#space-btn");
 
 const translator = new Translator(); // can I put this at the top with the variables?
@@ -44,3 +50,5 @@ dotBtn.addEventListener("click", () => {
 spaceBtn.addEventListener("click", () => {
   input.value += " ";
 });
+
+// dotSound.play();

@@ -24,8 +24,12 @@
       <button id="dash-btn" class="btn">-</button>
       <button id="dot-btn" class="btn">.</button>
     </div>
-
-    <audio src="dot-sound.m4a" id="dot-sound"></audio>
+<audio controls>
+    <source src="./audio/dot-sound.mp3" type="audio/mp3" id="dot-sound"></source>
+  </audio>
+  <audio controls>
+    <source src="./audio/dash-sound.mp3" type="audio/mp3" id="dash-sound"></source>
+  </audio>
     <p id="info">
       If typing morse code, leave a space between each character and two spaces
       between each word.
@@ -42,8 +46,6 @@
         value="Morse-Code"
       />
       <label for="morse-selection">Morse Code</label><br />
-
-      <button id="test-button">TEST HERE</button>
     </div>
     <script src="non-testable.js" type="module"></script>
   </body>
