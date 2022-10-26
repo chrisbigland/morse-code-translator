@@ -30,7 +30,17 @@
     text-align: center;
 }
 
-#btns-1, #btns-2 {
+#btns-1 {
+    display: flex;
+    justify-content: center;
+}
+
+#dot-dash-btns {
+    display: flex;
+    justify-content: center;
+}
+
+#space-btn {
     display: flex;
     justify-content: center;
 }

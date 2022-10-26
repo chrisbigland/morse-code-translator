@@ -130,20 +130,10 @@ let splitWord = "";
 let morseLettersArr = [];
 
 // // MO => EN FUNCTIONALITY
-// dotBtn.addEventListener("click", () => {
-//   input.value += ".";
-//   //add to the splitMorseChar when I click? How would I delete though if this was removed
-// });
 
-// dashBtn.addEventListener("click", () => {
-//   input.value += "-";
-// });
 
-// input.addEventListener("input", () => {
-//   console.log(splitMorseChar);
-//   splitMorseChar = input.value.split(" "); // splitMorseChar turns into an array - each symbol is an item
-//   return splitMorseChar;
-// });
+
+
 
 //ACTIONS
 // stylings

@@ -11,6 +11,7 @@ const dashBtn = document.querySelector("#dash-btn");
 const soundBtn = document.querySelector("#sound-btn");
 const dotSound = document.querySelector("#dot-sound");
 const testButton = document.querySelector("#test-button");
+const spaceBtn = document.querySelector("#space-btn");
 
 const translator = new Translator(); // can I put this at the top with the variables?
 
@@ -29,4 +30,17 @@ translBtn.addEventListener("click", (event) => {
     translation = translator.translateMotoEn(moInputArr);
   }
   output.innerHTML = translation;
+});
+
+dashBtn.addEventListener("click", () => {
+  input.value += "-";
+});
+
+dotBtn.addEventListener("click", () => {
+  input.value += ".";
+  //add to the splitMorseChar when I click? How would I delete though if this was removed
+});
+
+spaceBtn.addEventListener("click", () => {
+  input.value += " ";
 });
