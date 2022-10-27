@@ -20,17 +20,23 @@
     font-family: Shalimar;
 }
 
+.dot-dash-btns__dash-btn, .dot-dash-btns__dot-btn, .space-btn__btn {
+    width: 100px;
+} 
+
+#radio-selections
+
 .btn {
     width: 100px;
     background-color: #F6F5F1;
 }
 
-.output {
+.output-container__output {
     font-size: 2.5rem;
     text-align: center;
 }
 
-#btns-1, #dot-dash-btns, #space-btn, #radio-selections, #input-container {
+#functional-btns, #dot-dash-btns, #space-btn, #radio-selections, #input-container {
     display: flex;
     justify-content: center;
 }

@@ -121,11 +121,9 @@ const translator = new Translator();
 // // dotSound.play();
 
 let enLettersArr = [];
-let splitWord = "";
 let morseLettersArr = [];
 
 //ACTIONS
-// stylings
 // page jumps when output appears
 // move functions into class as methods
 // make it so that it doesn't just translate the recognised symbols - if unknown symbols exist - alert perhaps

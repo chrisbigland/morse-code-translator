@@ -1,9 +1,4 @@
-<!--
-  Andys Feedback:
-  - Use BEM naming conventions for the html classes below
-  - <br> tags shouldn't be used for margins, use CSS margin or padding instead
--->
-
+<!-- go through all variables and see if they're needed - do  Iknow what everything's doing?-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,32 +19,52 @@
     </div>
 
     <div id="space-btn">
-      <button class="btn">space</button>
+      <button class="space-btn__btn">space</button>
     </div>
     <div id="dot-dash-btns">
-      <button id="dash-btn" class="btn">-</button>
-      <button id="dot-btn" class="btn">.</button>
+      <button class="dot-dash-btns__dash-btn" class="dot-dash-btns__btn">
+        -
+      </button>
+      <button class="dot-dash-btns__dot-btn" class="dot-dash-btns__btn">
+        .
+      </button>
     </div>
     <p id="info">
       If typing morse code, leave a space between each character and two spaces
       between each word.
     </p>
     <div id="radio-selections">
-      <input id="en-selection" type="radio" name="language" value="English" />
-      <label for="english-selection">English</label><br />
       <input
-        id="mo-selection"
+        class="radio-selections__en-selection"
+        type="radio"
+        name="language"
+        value="English"
+      />
+      <label for="english-selection">English</label>
+      <input
+        class="radio-selections__mo-selection"
         type="radio"
         name="language"
         value="Morse-Code"
       />
-      <label for="morse-selection">Morse Code</label><br />
+      <label for="morse-selection">Morse Code</label>
     </div>
-    <br />
-    <p class="output"></p>
-    <div id="btns-1">
-      <input type="button" id="transl-btn" class="btn" value="Translate" />
-      <button id="sound-output" class="btn">Hear Morse Code</button>
+    <div id="output-container">
+      <p class="output-container__output"></p>
+    </div>
+    <div id="functional-btns">
+      <input
+        type="button"
+        class="functional-btns__transl"
+        class="functional-btns__btn"
+        value="Translate"
+      />
+      <button
+        class="functional-btns__sound-output"
+        class="functional-btns__btn"
+      >
+        Hear Morse Code
+      </button>
     </div>
 
     <audio src="./audio/dot-sound.mp3" type="audio/mp3" id="dot-sound"></audio>
@@ -58,9 +73,6 @@
       type="audio/mp3"
       id="dash-sound"
     ></audio>
-
-    <br />
-    <br />
 
     <script src="non-testable.js" type="module"></script>
   </body>
