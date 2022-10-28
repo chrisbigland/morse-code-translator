@@ -2,6 +2,8 @@
 // - Remove duplicate "new Translator()" bits of JS
 // - When should you use a class? When should you use functions?
 // - write tests
+// check if new number code is ok with coach - is it too wordy?
+// could I use switch instead of lengthy if statement?
 
 import { Translator } from "./scripts/main.js";
 
@@ -54,7 +56,6 @@ const playDot = () => {
 
 // let i = 0;
 
-
 // const timeOut = () => {
 //   setTimeout(function () {
 //     dotSound.play();
@@ -76,9 +77,9 @@ const playDot = () => {
 // });
 // };
 
-      //   setTimeout(function () {
-      //     // dotSound.play();
-      //   }, 1000);
+//   setTimeout(function () {
+//     // dotSound.play();
+//   }, 1000);
 
 //       myDotTimeout();
 //       // myDotTimeout();

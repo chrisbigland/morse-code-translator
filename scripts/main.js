@@ -79,7 +79,25 @@ export class Translator {
 
   translateLetter(letter) {
     let translatedLetter = "";
+    console.log(letter);
     if (letter != " ") {
+      if (
+        letter === "0" ||
+        letter === "1" ||
+        letter === "2" ||
+        letter === "3" ||
+        letter === "4" ||
+        letter === "5" ||
+        letter === "6" ||
+        letter === "7" ||
+        letter === "8" ||
+        letter === "9"
+      ) {
+        const newWord = changeNumberToWord(letter);
+        console.log(newWord);
+        letter = newWord;
+        console.log(letter);
+      }
       translatedLetter = this[letter];
     } else {
       translatedLetter = "/";
@@ -148,23 +166,23 @@ let morseLettersArr = [];
 
 const changeNumberToWord = (number) => {
   let word = "";
-  if (number === 0) {
+  if (number === "0") {
     word = "zero";
-  } else if (number === 1) {
+  } else if (number === "1") {
     word = "one";
-  } else if (number === 2) {
+  } else if (number === "2") {
     word = "two";
-  } else if (number === 3) {
+  } else if (number === "3") {
     word = "three";
-  } else if (number === 4) {
+  } else if (number === "4") {
     word = "four";
-  } else if (number === 5) {
+  } else if (number === "5") {
     word = "five";
-  } else if (number === 6) {
+  } else if (number === "6") {
     word = "six";
-  } else if (number === 7) {
+  } else if (number === "7") {
     word = "seven";
-  } else if (number === 8) {
+  } else if (number === "8") {
     word = "eight";
   } else {
     word = "nine";
