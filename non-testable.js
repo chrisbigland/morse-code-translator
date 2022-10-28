@@ -3,7 +3,7 @@
 // - When should you use a class? When should you use functions?
 // - write tests
 
-import { Translator } from "./main.js";
+import { Translator } from "./scripts/main.js";
 
 const input = document.querySelector("#input1");
 const translBtn = document.querySelector(".functional-btns__transl");
@@ -36,28 +36,79 @@ translBtn.addEventListener("click", (event) => {
   output.innerHTML = translation;
 });
 
-const playMorseSound = (outputValue) => {
-  const outputArr = outputValue.split("");
-  outputArr.forEach((char) => {
-    if (char === ".") {
-      console.log("dot found");
-      dotSound.play();
-    //   dotSound.pause();
-    } else if (char === "-") {
-      console.log("dash found");
-      dashSound.play();
-    //   dashSound.pause();
-    }
-  });
-  //   for (let i = 0; i < outputArr.length; i++) {
-  //     if (i === ".") {
-  //       dotSound.play();
-  //     } else if (i === "-") {
-  //       dashSound.play();
-  //     }
-  //   }
-  //   console.log(outputArr);
+const playDot = () => {
+  dotSound.play();
 };
+
+// const myDotTimeout = () => {
+//   setTimeout(playDot, 2000);
+//   clearTimeout(playDot);
+// };
+
+// const myDotInterval = () => {
+//   setInterval(function () {
+//     // playDot();
+//     console.log("my interval works");
+//   }, 1000);
+// };
+
+// let i = 0;
+
+
+// const timeOut = () => {
+//   setTimeout(function () {
+//     dotSound.play();
+//     if (++i < outputArr.length) {
+//       return;
+//     }
+//     clearTimeout(timeOut);
+//   }, 1000);
+// };
+// timeOut();
+
+// const playMorseSound = (outputValue) => {
+//   const outputArr = outputValue.split("");
+//   outputArr.forEach((char) => {
+//     if (char === ".") {
+//       console.log("dot found");
+//       playDot();
+//     };
+// });
+// };
+
+      //   setTimeout(function () {
+      //     // dotSound.play();
+      //   }, 1000);
+
+//       myDotTimeout();
+//       // myDotTimeout();
+//       dotSound.play();
+//     } else if (char === "-") {
+//       console.log("dash found");
+//       dashSound.play();
+//     }
+//   });
+
+//   });
+//   console.log(outputArr);
+// };
+/// CALL FUNCTION AGAIN IN  IF STATEMENT???
+
+// const outputArr = output.innerHTML;
+
+// const playSounds = (outputValue) => {
+//     let i = 0
+//     const outputArr = outputValue.split("");
+//   setTimeout(function () {
+//     console.log(outputArr[i]);
+//     if (i < outputArr.length - 1) {
+//       i++;
+//       playSounds(i);
+//     }
+//   }, 1000);
+// };
+
+// document.querySelector("#test-btn").addEventListener("click", playSounds(outputArr));
 
 morseSoundBtn.addEventListener("click", (event) => {
   playMorseSound(output.innerHTML);
