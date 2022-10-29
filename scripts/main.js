@@ -152,7 +152,7 @@ export class Translator {
   }
 }
 
-const translator = new Translator();
+export const translator = new Translator();
 
 let enLettersArr = [];
 let morseLettersArr = [];
