@@ -215,32 +215,92 @@ describe("translateMoToEn", () => {
     expect(output).toBe(" ");
   });
 
-  it("should ensure letters remain as they are and are not translated", () => {
-    const moInputArr = [
-      "l",
-      "e",
-      "t",
-      "t",
-      "e",
-      "r",
-      "s",
-      " ",
-      "n",
-      "o",
-      "t",
-      " ",
-      "c",
-      "o",
-      "d",
-      "e",
-    ];
-    let output = translator.translateMotoEn(moInputArr);
-    output = "letters not code";
+  // it("should return a # if the morse character is invalid", () => {
+  //   const moInputArr = [
+  //     "l",
+  //     "e",
+  //     "t",
+  //     "t",
+  //     "e",
+  //     "r",
+  //     "s",
+  //     " ",
+  //     "n",
+  //     "o",
+  //     "t",
+  //     " ",
+  //     "c",
+  //     "o",
+  //     "d",
+  //     "e",
+  //   ];
+  //   let output = translator.translateMotoEn(moInputArr);
+  //   expect(output).toBe("letters not code");
+  // });
+
+  it('should identify invalid characters by returning a "#"', () => {
+    const enInputArr = ["$"];
+    const output = translator.translateEnToMo(enInputArr);
+    expect(output).toBe("#");
   });
 
-  it('should identify invalid characters by returning a "#"', () => {});
+  it('should identify multiple invalid characters by returning a "#"', () => {
+    const enInputArr = [
+      "!",
+      "@",
+      "£",
+      "%",
+      "^",
+      "&",
+      "*",
+      "(",
+      ")",
+      "{",
+      "}",
+      "[",
+      "]",
+      "-",
+      "+",
+      "-",
+      "=",
+      ";",
+      "'",
+      ":",
+      "/",
+      ".",
+      ",",
+      "?",
+      ">",
+      "<",
+      "~",
+      "`",
+      "±",
+      "§",
+    ];
+    const output = translator.translateEnToMo(enInputArr);
+    expect(output).toBe("################################");
+  });
 
-  // it('test3', () => {
+  it('should identify invalid characters amongst other letters by returning a "#"', () => {
+    const enInputArr = [
+      "H",
+      "e",
+      "l",
+      "l",
+      "o",
+      " ",
+      "W",
+      "o",
+      "r",
+      "l",
+      "d",
+      "!",
+    ];
+    const output = translator.translateEnToMo(enInputArr);
+    expect(output).toBe(" .... . .-.. .-.. ---/.-- --- .-. .-.. -.. #");
+  });
+
+  // it('should ', () => {
 
   // })
 });

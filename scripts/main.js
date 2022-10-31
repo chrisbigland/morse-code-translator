@@ -80,7 +80,7 @@ export class Translator {
   translateLetter(letter) {
     let translatedLetter;
     console.log(letter);
-    let isAValidEntry = checkValidEntry(letter);
+    let isAValidEntry = validateEnEntry(letter);
     if (isAValidEntry) {
       if (letter != " ") {
         if (
@@ -107,15 +107,12 @@ export class Translator {
     } else {
       translatedLetter = "#";
     }
-    console.log(translatedLetter);
     morseLettersArr.push(translatedLetter);
     console.log(morseLettersArr);
-    return translatedLetter; //do I need this?
   }
 
   translateEnToMo(enInputArr) {
     let outputHtml = "";
-    console.log(`translate en to mo function activated`);
     enInputArr.forEach((letter) => {
       translator.translateLetter(letter.toLowerCase());
       outputHtml = morseLettersArr.join(" ");
@@ -126,22 +123,31 @@ export class Translator {
 
   translateMorseChar(morseChar) {
     let translatedMorseChar = "";
+    const isValidEntry = validateMoEntry(morseChar);
+
     if (morseChar != " ") {
+      let nonMorseChar = "";
       // || morseChar.includes(".") || morseChar.includes(".")
       // runs if the character is not a space
-      for (let i = 0; i < this.morseAlphabetArr.length; i++) {
-        // loops through the alphabet array of arrays
-        if (this.morseAlphabetArr[i][0] === morseChar) {
-          // if the first index of each array contains the character, we add the second index of that array to the enLettersArr.
-          enLettersArr.push(this.morseAlphabetArr[i][1]);
+      if (isValidEntry) {
+        for (let i = 0; i < this.morseAlphabetArr.length; i++) {
+          // loops through the alphabet array of arrays
+          if (this.morseAlphabetArr[i][0] === morseChar) {
+            // if the first index of each array contains the character, we add the second index of that array to the enLettersArr.
+            enLettersArr.push(this.morseAlphabetArr[i][1]);
+          }
         }
-      }
-      if (morseChar === "") {
-        //CHECK HERE - might be reason for tests failing with spaces!!!
-        enLettersArr.push(" ");
+        if (morseChar === "") {
+          //CHECK HERE - might be reason for tests failing with spaces!!! Should above be a space? OR maybe it's because it's in a for loop - adding spaces too many times!
+          nonMorseChar = " ";
+          enLettersArr.push(nonMorseChar);
+        }
+      } else {
+        nonMorseChar = "#";
+        enLettersArr.push(nonMorseChar);
       }
       // else if (morseChar )
-      return translatedMorseChar;
+      return translatedMorseChar; // don't think we need this variable at all - check
     }
   }
 
@@ -165,7 +171,7 @@ export const translator = new Translator();
 let enLettersArr = [];
 let morseLettersArr = [];
 
-const checkValidEntry = (str) => {
+const validateEnEntry = (str) => {
   const containsLetters = /[a-zA-Z]/.test(str);
   const containsNumbers = /\d/.test(str);
   if (containsLetters === true || containsNumbers === true || str === " ") {
@@ -175,9 +181,19 @@ const checkValidEntry = (str) => {
   }
 };
 
+const validateMoEntry = (str) => {
+  if (!str.includes(" ") && !str.includes("-") && !str.includes(".")) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
 //ACTIONS
 // page jumps when output appears
+// spaces test issue - read the main page instructions about spacing - something to look into there?
 //test for new letter function
+//fix spacing issue - no spaces showing mo to en
 // make it so that it doesn't just translate the recognised symbols - if unknown symbols exist - alert perhaps
 // insert a space for the letters
 // warning message if unexpected symbols received.
