@@ -30,7 +30,7 @@ describe("translateEnToMo", () => {
   it('should translate "a" to ".-"', () => {
     const enInputArr = ["a"];
     const output = translator.translateEnToMo(enInputArr);
-    expect(output).toBe(" .-");
+    expect(output).toBe(".-");
   });
 
   it('should translate multiple words with spaces"', () => {
@@ -49,7 +49,7 @@ describe("translateEnToMo", () => {
       "d",
     ];
     const output = translator.translateEnToMo(enInputArr);
-    expect(output).toBe(" .... . .-.. .-.. ---/..-. .-. .. . -. -..");
+    expect(output).toBe(".... . .-.. .-.. ---/..-. .-. .. . -. -..");
   });
 
   it('should translate "every letter of the alphabet', () => {
@@ -100,7 +100,7 @@ describe("translateEnToMo", () => {
     ];
     const output = translator.translateEnToMo(enInputArr);
     expect(output).toBe(
-      " - .... ./--.- ..- .. -.-. -.-/-... .-. --- .-- -./..-. --- -..-/.--- ..- -- .--. .../--- ...- . .-./- .... ./.-.. .- --.. -.--/-.. --- --."
+      "- .... ./--.- ..- .. -.-. -.-/-... .-. --- .-- -./..-. --- -..-/.--- ..- -- .--. .../--- ...- . .-./- .... ./.-.. .- --.. -.--/-.. --- --."
     );
   });
 
@@ -131,14 +131,14 @@ describe("translateEnToMo", () => {
     ];
     const output = translator.translateEnToMo(enInputArr);
     expect(output).toBe(
-      " .-- . -.../-.. . ...- . .-.. --- .--. . .-./-... --- --- - -.-. .- -- .--."
+      ".-- . -.../-.. . ...- . .-.. --- .--. . .-./-... --- --- - -.-. .- -- .--."
     );
   });
 
   it("it should translate the number 1 to .----", () => {
     const enInputArr = ["1"];
     const output = translator.translateEnToMo(enInputArr);
-    expect(output).toBe(" .----");
+    expect(output).toBe(".----");
   });
 
   it("should translate both words and numbers", () => {
@@ -182,7 +182,7 @@ describe("translateEnToMo", () => {
     ];
     const output = translator.translateEnToMo(enInputArr);
     expect(output).toBe(
-      " - .... . .-. ./.- .-. ./.---- ----- ...../-.-. --- ..- -. - .-. .. . .../.. -./- .... ./.-- --- .-. .-.. -.."
+      "- .... . .-. ./.- .-. ./.---- ----- ...../-.-. --- ..- -. - .-. .. . .../.. -./- .... ./.-- --- .-. .-.. -.."
     );
   });
 
@@ -190,7 +190,7 @@ describe("translateEnToMo", () => {
     const numbersArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     const output = translator.translateEnToMo(numbersArr);
     expect(output).toBe(
-      " ----- .---- ..--- ...-- ....- ..... -.... --... ---.. -----"
+      "----- .---- ..--- ...-- ....- ..... -.... --... ---.. -----"
     );
   });
 
@@ -297,10 +297,10 @@ describe("translateMoToEn", () => {
       "!",
     ];
     const output = translator.translateEnToMo(enInputArr);
-    expect(output).toBe(" .... . .-.. .-.. ---/.-- --- .-. .-.. -.. #");
+    expect(output).toBe(".... . .-.. .-.. ---/.-- --- .-. .-.. -.. #");
   });
 
-  // it('should ', () => {
+  // it('should (only allow a maximum of 5 dots or dashes per morse character)' => {
 
   // })
 });

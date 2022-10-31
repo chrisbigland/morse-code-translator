@@ -43,7 +43,7 @@ translBtn.addEventListener("click", (event) => {
 const playDot = () => {
   dotSound.play();
 };
-
+// •	SET TIME OUT – 100milliseconds pause. Interval in between every time it plays. 
 // const myDotTimeout = () => {
 //   setTimeout(playDot, 2000);
 //   clearTimeout(playDot);
@@ -69,15 +69,15 @@ const playDot = () => {
 // };
 // timeOut();
 
-// const playMorseSound = (outputValue) => {
-//   const outputArr = outputValue.split("");
-//   outputArr.forEach((char) => {
-//     if (char === ".") {
-//       console.log("dot found");
-//       playDot();
-//     };
-// });
-// };
+const playMorseSound = (outputValue) => {
+  const outputArr = outputValue.split("");
+  outputArr.forEach((char) => {
+    if (char === ".") {
+      console.log("dot found");
+      playDot();
+    };
+});
+};
 
 //   setTimeout(function () {
 //     // dotSound.play();

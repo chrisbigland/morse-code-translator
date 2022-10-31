@@ -1,41 +1,41 @@
 export class Translator {
   constructor() {
-    this.a = " .-";
-    this.b = " -...";
-    this.c = " -.-.";
-    this.d = " -..";
-    this.e = " .";
-    this.f = " ..-.";
-    this.g = " --.";
-    this.h = " ....";
-    this.i = " ..";
-    this.j = " .---";
-    this.k = " -.-";
-    this.l = " .-..";
-    this.m = " --";
-    this.n = " -.";
-    this.o = " ---";
-    this.p = " .--.";
-    this.q = " --.-";
-    this.r = " .-.";
-    this.s = " ...";
-    this.t = " -";
-    this.u = " ..-";
-    this.v = " ...-";
-    this.w = " .--";
-    this.x = " -..-";
-    this.y = " -.--";
-    this.z = " --..";
-    this.zero = " -----";
-    this.one = " .----";
-    this.two = " ..---";
-    this.three = " ...--";
-    this.four = " ....-";
-    this.five = " .....";
-    this.six = " -....";
-    this.seven = " --...";
-    this.eight = " ---..";
-    this.nine = " -----";
+    this.a = ".-";
+    this.b = "-...";
+    this.c = "-.-.";
+    this.d = "-..";
+    this.e = ".";
+    this.f = "..-.";
+    this.g = "--.";
+    this.h = "....";
+    this.i = "..";
+    this.j = ".---";
+    this.k = "-.-";
+    this.l = ".-..";
+    this.m = "--";
+    this.n = "-.";
+    this.o = "---";
+    this.p = ".--.";
+    this.q = "--.-";
+    this.r = ".-.";
+    this.s = "...";
+    this.t = "-";
+    this.u = "..-";
+    this.v = "...-";
+    this.w = ".--";
+    this.x = "-..-";
+    this.y = "-.--";
+    this.z = "--..";
+    this.zero = "-----";
+    this.one = ".----";
+    this.two = "..---";
+    this.three = "...--";
+    this.four = "....-";
+    this.five = ".....";
+    this.six = "-....";
+    this.seven = "--...";
+    this.eight = "---..";
+    this.nine = "-----";
 
     this.morseAlphabetArr = [
       [".-", "a"],
@@ -115,7 +115,7 @@ export class Translator {
     let outputHtml = "";
     enInputArr.forEach((letter) => {
       translator.translateLetter(letter.toLowerCase());
-      outputHtml = morseLettersArr.join(" ");
+      outputHtml = morseLettersArr.join(" ").replaceAll(" / ", "/"); // put this in as don't need spaces next to forward slash and they get put in with the 'join'.
     });
     morseLettersArr = [];
     return outputHtml;
@@ -123,7 +123,10 @@ export class Translator {
 
   translateMorseChar(morseChar) {
     let translatedMorseChar = "";
+    console.log(morseChar);
+    console.log(typeof morseChar);
     const isValidEntry = validateMoEntry(morseChar);
+    console.log(isValidEntry);
 
     if (morseChar != " ") {
       let nonMorseChar = "";
@@ -153,6 +156,7 @@ export class Translator {
 
   translateMotoEn(moInputArr) {
     console.log(`translate mo to en function activated`);
+    console.log(moInputArr);
     let outputHtml = "";
 
     moInputArr.forEach((character) => {
@@ -181,11 +185,15 @@ const validateEnEntry = (str) => {
   }
 };
 
+// if string includes something that ISNT a dot, dash or space, return false. string should ONLY include space, dot or dash
 const validateMoEntry = (str) => {
-  if (!str.includes(" ") && !str.includes("-") && !str.includes(".")) {
+  // const validCharArr = ["", ".", "-"];
+  if (!str.includes("-") && !str.includes(".") && !str.includes("")) {
     return false;
+    // } else if (str === "") {
+    //   return true;
   } else {
-    return true;
+    return false;
   }
 };
 
