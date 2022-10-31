@@ -78,29 +78,34 @@ export class Translator {
   }
 
   translateLetter(letter) {
-    let translatedLetter = "";
+    let translatedLetter;
     console.log(letter);
-    if (letter != " ") {
-      if (
-        letter === "0" ||
-        letter === "1" ||
-        letter === "2" ||
-        letter === "3" ||
-        letter === "4" ||
-        letter === "5" ||
-        letter === "6" ||
-        letter === "7" ||
-        letter === "8" ||
-        letter === "9"
-      ) {
-        const newWord = changeNumberToWord(letter);
-        console.log(newWord);
-        letter = newWord;
-        console.log(letter);
+    let isAValidEntry = checkValidEntry(letter);
+    if (isAValidEntry) {
+      if (letter != " ") {
+        if (
+          letter === "0" ||
+          letter === "1" ||
+          letter === "2" ||
+          letter === "3" ||
+          letter === "4" ||
+          letter === "5" ||
+          letter === "6" ||
+          letter === "7" ||
+          letter === "8" ||
+          letter === "9"
+        ) {
+          const newWord = changeNumberToWord(letter);
+          console.log(newWord);
+          letter = newWord;
+          console.log(letter);
+        }
+        translatedLetter = this[letter];
+      } else {
+        translatedLetter = "/";
       }
-      translatedLetter = this[letter];
     } else {
-      translatedLetter = "/";
+      translatedLetter = "#";
     }
     console.log(translatedLetter);
     morseLettersArr.push(translatedLetter);
@@ -122,6 +127,7 @@ export class Translator {
   translateMorseChar(morseChar) {
     let translatedMorseChar = "";
     if (morseChar != " ") {
+      // || morseChar.includes(".") || morseChar.includes(".")
       // runs if the character is not a space
       for (let i = 0; i < this.morseAlphabetArr.length; i++) {
         // loops through the alphabet array of arrays
@@ -131,8 +137,10 @@ export class Translator {
         }
       }
       if (morseChar === "") {
+        //CHECK HERE - might be reason for tests failing with spaces!!!
         enLettersArr.push(" ");
       }
+      // else if (morseChar )
       return translatedMorseChar;
     }
   }
@@ -157,8 +165,19 @@ export const translator = new Translator();
 let enLettersArr = [];
 let morseLettersArr = [];
 
+const checkValidEntry = (str) => {
+  const containsLetters = /[a-zA-Z]/.test(str);
+  const containsNumbers = /\d/.test(str);
+  if (containsLetters === true || containsNumbers === true || str === " ") {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 //ACTIONS
 // page jumps when output appears
+//test for new letter function
 // make it so that it doesn't just translate the recognised symbols - if unknown symbols exist - alert perhaps
 // insert a space for the letters
 // warning message if unexpected symbols received.
