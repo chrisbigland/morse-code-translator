@@ -26,7 +26,7 @@ import {
 // .- entered - pop up
 // it should return a "#" if an invalid character is entered. - should this be in negative?
 
-describe("translateEnToMo", () => {
+describe("Positive Tests", () => {
   it('should translate "a" to ".-"', () => {
     const enInputArr = ["a"];
     const output = translator.translateEnToMo(enInputArr);
@@ -194,49 +194,15 @@ describe("translateEnToMo", () => {
     );
   });
 
-  //     it('test8', () => {
-
-  //     })
-
-  //     it('test9', () => {
-
-  //     })
-
-  //     it('test10', () => {
-
-  //     })
 });
 
 // NEGATIVE TESTS
-describe("translateMoToEn", () => {
-  it('it should translate "" as ""', () => {
-    const moInputArr = [""];
-    const output = translator.translateMotoEn(moInputArr);
-    expect(output).toBe(" ");
+describe("Negative Tests", () => {
+  it('it should translate " " as "/"', () => {
+    const enInputArr = [" "];
+    const output = translator.translateEntoMo(enInputArr);
+    expect(output).toBe("/");
   });
-
-  // it("should return a # if the morse character is invalid", () => {
-  //   const moInputArr = [
-  //     "l",
-  //     "e",
-  //     "t",
-  //     "t",
-  //     "e",
-  //     "r",
-  //     "s",
-  //     " ",
-  //     "n",
-  //     "o",
-  //     "t",
-  //     " ",
-  //     "c",
-  //     "o",
-  //     "d",
-  //     "e",
-  //   ];
-  //   let output = translator.translateMotoEn(moInputArr);
-  //   expect(output).toBe("letters not code");
-  // });
 
   it('should identify invalid characters by returning a "#"', () => {
     const enInputArr = ["$"];
@@ -278,7 +244,9 @@ describe("translateMoToEn", () => {
       "§",
     ];
     const output = translator.translateEnToMo(enInputArr);
-    expect(output).toBe("################################");
+    expect(output).toBe(
+      "# # # # # # # # # # # # # # # # # # # # # # # # # # # # # #"
+    );
   });
 
   it('should identify invalid characters amongst other letters by returning a "#"', () => {
@@ -300,7 +268,7 @@ describe("translateMoToEn", () => {
     expect(output).toBe(".... . .-.. .-.. ---/.-- --- .-. .-.. -.. #");
   });
 
-  // it('should (only allow a maximum of 5 dots or dashes per morse character)' => {
+  // it should not allow a more than 5 dots or dashes per morse character' => {
 
   // })
 });

@@ -1,4 +1,6 @@
 // Tasks:
+
+// this morning: make tests pass. Figure out hashtag space issue. Checkout play issue. 
 // - Remove duplicate "new Translator()" bits of JS
 // - When should you use a class? When should you use functions? watch this video https://www.youtube.com/watch?v=PFmuCDHHpwk ALSO do the further reading in the 'OOP' notes.
 // merge all questions

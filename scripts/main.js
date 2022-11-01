@@ -101,12 +101,13 @@ export class Translator {
           console.log(letter);
         }
         translatedLetter = this[letter];
-      } else {
+      } else if (letter === " ") {
         translatedLetter = "/";
       }
     } else {
       translatedLetter = "#";
     }
+    console.log(translatedLetter);
     morseLettersArr.push(translatedLetter);
     console.log(morseLettersArr);
   }
@@ -133,6 +134,7 @@ export class Translator {
       // || morseChar.includes(".") || morseChar.includes(".")
       // runs if the character is not a space
       if (isValidEntry) {
+        console.log("it's valid");
         for (let i = 0; i < this.morseAlphabetArr.length; i++) {
           // loops through the alphabet array of arrays
           if (this.morseAlphabetArr[i][0] === morseChar) {
@@ -146,6 +148,7 @@ export class Translator {
           enLettersArr.push(nonMorseChar);
         }
       } else {
+        console.log("it's not valid");
         nonMorseChar = "#";
         enLettersArr.push(nonMorseChar);
       }
@@ -186,6 +189,8 @@ const validateEnEntry = (str) => {
 };
 
 // if string includes something that ISNT a dot, dash or space, return false. string should ONLY include space, dot or dash
+/// include a length limit here
+// try every() method
 const validateMoEntry = (str) => {
   // const validCharArr = ["", ".", "-"];
   if (!str.includes("-") && !str.includes(".") && !str.includes("")) {
@@ -199,13 +204,13 @@ const validateMoEntry = (str) => {
 
 //ACTIONS
 // page jumps when output appears
-// spaces test issue - read the main page instructions about spacing - something to look into there?
+// check I have enough MO to EN tests? Maybe split up with x4 describes pos and neg for each. 
 //test for new letter function
 //fix spacing issue - no spaces showing mo to en
 // make it so that it doesn't just translate the recognised symbols - if unknown symbols exist - alert perhaps
 // insert a space for the letters
-// warning message if unexpected symbols received.
-// Morse code - event listener that can tell how long someone has spent clicking on a button for? i.e. 10miliseconds = dot, or buttons with a - and a .
+
+
 
 const changeNumberToWord = (number) => {
   let word = "";
