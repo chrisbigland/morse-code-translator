@@ -1,14 +1,3 @@
-// Tasks:
-
-// this morning: make tests pass. Figure out hashtag space issue. Checkout play issue.
-// - Remove duplicate "new Translator()" bits of JS
-// - When should you use a class? When should you use functions? watch this video https://www.youtube.com/watch?v=PFmuCDHHpwk ALSO do the further reading in the 'OOP' notes.
-// merge all questions
-// - write tests
-// check if new number code is ok with coach - is it too wordy?
-// could I use switch instead of lengthy if statement?
-// MO to EN - translate letters to be letters only.
-
 import { Translator } from "./scripts/main.js";
 
 const input = document.querySelector("#input1");
