@@ -1,13 +1,13 @@
 // Tasks:
 
-// this morning: make tests pass. Figure out hashtag space issue. Checkout play issue. 
+// this morning: make tests pass. Figure out hashtag space issue. Checkout play issue.
 // - Remove duplicate "new Translator()" bits of JS
 // - When should you use a class? When should you use functions? watch this video https://www.youtube.com/watch?v=PFmuCDHHpwk ALSO do the further reading in the 'OOP' notes.
 // merge all questions
 // - write tests
 // check if new number code is ok with coach - is it too wordy?
 // could I use switch instead of lengthy if statement?
-// MO to EN - translate letters to be letters only. 
+// MO to EN - translate letters to be letters only.
 
 import { Translator } from "./scripts/main.js";
 
@@ -45,7 +45,7 @@ translBtn.addEventListener("click", (event) => {
 const playDot = () => {
   dotSound.play();
 };
-// •	SET TIME OUT – 100milliseconds pause. Interval in between every time it plays. 
+// •	SET TIME OUT – 100milliseconds pause. Interval in between every time it plays.
 // const myDotTimeout = () => {
 //   setTimeout(playDot, 2000);
 //   clearTimeout(playDot);
@@ -77,8 +77,8 @@ const playMorseSound = (outputValue) => {
     if (char === ".") {
       console.log("dot found");
       playDot();
-    };
-});
+    }
+  });
 };
 
 //   setTimeout(function () {
@@ -112,6 +112,71 @@ const playMorseSound = (outputValue) => {
 //     }
 //   }, 1000);
 // };
+
+/////MY AMENDMENT OF THE EV LISTENER TO INCREMENT
+// morseSoundBtn.addEventListener("click", (event) => {
+//   const outputArr = output.innerHTML.split("");
+//   // let counter = outputArr.length - 1; // starts -1 as we have already played once with first play?
+//   let counter = 0;
+
+//   const customPlay = () => {
+//     if (outputArr[counter] == ".") {
+//       dotSound.play();
+//       counter++;
+//     } else if (outputArr[counter] == "-") {
+//       dashSound.play();
+//       counter++;
+//     } else if (outputArr[counter] == " ") {
+//       setTimeout(function () {
+//         counter++;
+//         console.log("waited a second");
+//       }, 1000);
+//     }
+
+//     if (counter === outputArr.length - 1) {
+//       dotSound.removeEventListener("ended", customPlay);
+//       dashSound.removeEventListener("ended", customPlay);
+//     }
+//   };
+
+//   dotSound.addEventListener("ended", customPlay);
+//   dashSound.addEventListener("ended", customPlay);
+
+//   dotSound.currentTime = 0;
+//   dotSound.loop = false;
+//   dashSound.currentTime = 0;
+//   dashSound.loop = false;
+//   customPlay();
+// });
+
+morseSoundBtn.addEventListener("click", (event) => {
+  const outputArr = output.innerHTML.split("");
+  let counter = 0;
+
+  const customPlay = () => {
+    if (outputArr[counter] == ".") {
+      dotSound.play();
+    } else if (outputArr[counter] == "-") {
+      dashSound.play();
+    }
+
+    counter++;
+
+    if (counter == outputArr.length - 1) {
+      dotSound.removeEventListener("ended", customPlay);
+      dashSound.removeEventListener("ended", customPlay);
+    }
+  };
+
+  dotSound.addEventListener("ended", customPlay);
+  dashSound.addEventListener("ended", customPlay);
+
+  // dotSound.currentTime = 0;
+  // dotSound.loop = false;
+  // dashSound.currentTime = 0;
+  // dashSound.loop = false;
+  customPlay();
+});
 
 // document.querySelector("#test-btn").addEventListener("click", playSounds(outputArr));
 

@@ -126,7 +126,7 @@ export class Translator {
     let translatedMorseChar = "";
     console.log(morseChar);
     console.log(typeof morseChar);
-    const isValidEntry = validateMoEntry(morseChar);
+    const isValidEntry = validateMoEntry(morseChar.split(""));
     console.log(isValidEntry);
 
     if (morseChar != " ") {
@@ -191,28 +191,29 @@ const validateEnEntry = (str) => {
 // if string includes something that ISNT a dot, dash or space, return false. string should ONLY include space, dot or dash
 /// include a length limit here
 // try every() method
-const validateMoEntry = (str) => {
-  // const validCharArr = ["", ".", "-"];
-  if (!str.includes("-") && !str.includes(".") && !str.includes("")) {
-    return false;
-    // } else if (str === "") {
-    //   return true;
+const validateMoEntry = (moSplitCharArr) => {
+  console.log(moSplitCharArr);
+  moSplitCharArr.every(validateMoChar);
+};
+
+const validateMoChar = (input) => {
+  if (input === "." || input === "-" || input === " ") {
+    return true;
   } else {
     return false;
   }
-};
+}
 
 //ACTIONS
 // page jumps when output appears
-// check I have enough MO to EN tests? Maybe split up with x4 describes pos and neg for each. 
+// check I have enough MO to EN tests? Maybe split up with x4 describes pos and neg for each.
 //test for new letter function
 //fix spacing issue - no spaces showing mo to en
 // make it so that it doesn't just translate the recognised symbols - if unknown symbols exist - alert perhaps
 // insert a space for the letters
 
-
-
 const changeNumberToWord = (number) => {
+  // MOVE INSIDE CLASS
   let word = "";
   if (number === "0") {
     word = "zero";

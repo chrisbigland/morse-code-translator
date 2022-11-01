@@ -26,7 +26,7 @@ import {
 // .- entered - pop up
 // it should return a "#" if an invalid character is entered. - should this be in negative?
 
-describe("Positive Tests", () => {
+describe("Positive EN to MO Tests", () => {
   it('should translate "a" to ".-"', () => {
     const enInputArr = ["a"];
     const output = translator.translateEnToMo(enInputArr);
@@ -196,8 +196,184 @@ describe("Positive Tests", () => {
 
 });
 
-// NEGATIVE TESTS
-describe("Negative Tests", () => {
+
+// POSITIVE MO to EN tests
+//////////////AMEND BELOW
+// describe("Positive MO to EN Tests", () => {
+//   it('should translate ".-" to "a"', () => {
+//     const moInputArr = [".-"];
+//     const output = translator.translateMoToEn(moInputArr);
+//     expect(output).toBe(".-");
+//   });
+
+//   it('should translate multiple words with spaces"', () => {
+//     const enInputArr = [
+//       "h",
+//       "e",
+//       "l",
+//       "l",
+//       "o",
+//       " ",
+//       "f",
+//       "r",
+//       "i",
+//       "e",
+//       "n",
+//       "d",
+//     ];
+//     const output = translator.translateEnToMo(enInputArr);
+//     expect(output).toBe(".... . .-.. .-.. ---/..-. .-. .. . -. -..");
+//   });
+
+//   it('should translate "every letter of the alphabet', () => {
+//     const enInputArr = [
+//       "t",
+//       "h",
+//       "e",
+//       " ",
+//       "q",
+//       "u",
+//       "i",
+//       "c",
+//       "k",
+//       " ",
+//       "b",
+//       "r",
+//       "o",
+//       "w",
+//       "n",
+//       " ",
+//       "f",
+//       "o",
+//       "x",
+//       " ",
+//       "j",
+//       "u",
+//       "m",
+//       "p",
+//       "s",
+//       " ",
+//       "o",
+//       "v",
+//       "e",
+//       "r",
+//       " ",
+//       "t",
+//       "h",
+//       "e",
+//       " ",
+//       "l",
+//       "a",
+//       "z",
+//       "y",
+//       " ",
+//       "d",
+//       "o",
+//       "g",
+//     ];
+//     const output = translator.translateEnToMo(enInputArr);
+//     expect(output).toBe(
+//       "- .... ./--.- ..- .. -.-. -.-/-... .-. --- .-- -./..-. --- -..-/.--- ..- -- .--. .../--- ...- . .-./- .... ./.-.. .- --.. -.--/-.. --- --."
+//     );
+//   });
+
+//   it("should translate upper and lower case letters", () => {
+//     const enInputArr = [
+//       "W",
+//       "e",
+//       "B",
+//       " ",
+//       "d",
+//       "E",
+//       "v",
+//       "e",
+//       "l",
+//       "O",
+//       "P",
+//       "E",
+//       "r",
+//       " ",
+//       "B",
+//       "o",
+//       "o",
+//       "T",
+//       "C",
+//       "a",
+//       "m",
+//       "P",
+//     ];
+//     const output = translator.translateEnToMo(enInputArr);
+//     expect(output).toBe(
+//       ".-- . -.../-.. . ...- . .-.. --- .--. . .-./-... --- --- - -.-. .- -- .--."
+//     );
+//   });
+
+//   it("it should translate the number 1 to .----", () => {
+//     const enInputArr = ["1"];
+//     const output = translator.translateEnToMo(enInputArr);
+//     expect(output).toBe(".----");
+//   });
+
+//   it("should translate both words and numbers", () => {
+//     const enInputArr = [
+//       "t",
+//       "h",
+//       "e",
+//       "r",
+//       "e",
+//       " ",
+//       "a",
+//       "r",
+//       "e",
+//       " ",
+//       "1",
+//       "9",
+//       "5",
+//       " ",
+//       "c",
+//       "o",
+//       "u",
+//       "n",
+//       "t",
+//       "r",
+//       "i",
+//       "e",
+//       "s",
+//       " ",
+//       "i",
+//       "n",
+//       " ",
+//       "t",
+//       "h",
+//       "e",
+//       " ",
+//       "w",
+//       "o",
+//       "r",
+//       "l",
+//       "d",
+//     ];
+//     const output = translator.translateEnToMo(enInputArr);
+//     expect(output).toBe(
+//       "- .... . .-. ./.- .-. ./.---- ----- ...../-.-. --- ..- -. - .-. .. . .../.. -./- .... ./.-- --- .-. .-.. -.."
+//     );
+//   });
+
+//   it("should translate every number", () => {
+//     const numbersArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+//     const output = translator.translateEnToMo(numbersArr);
+//     expect(output).toBe(
+//       "----- .---- ..--- ...-- ....- ..... -.... --... ---.. -----"
+//     );
+//   });
+
+//}
+
+/////////////AMEND ABOVE
+
+
+// NEGATIVE EN to MO TESTS
+describe("Negative EN to MO Tests", () => {
   it('it should translate " " as "/"', () => {
     const enInputArr = [" "];
     const output = translator.translateEntoMo(enInputArr);
@@ -272,5 +448,86 @@ describe("Negative Tests", () => {
 
   // })
 });
+
+
+///AMEND BELOW
+// describe("Negative MO to EN Tests", () => {
+//   it('it should translate " " as "/"', () => {
+//     const enInputArr = [" "];
+//     const output = translator.translateEntoMo(enInputArr);
+//     expect(output).toBe("/");
+//   });
+
+//   it('should identify invalid characters by returning a "#"', () => {
+//     const enInputArr = ["$"];
+//     const output = translator.translateEnToMo(enInputArr);
+//     expect(output).toBe("#");
+//   });
+
+//   it('should identify multiple invalid characters by returning a "#"', () => {
+//     const enInputArr = [
+//       "!",
+//       "@",
+//       "£",
+//       "%",
+//       "^",
+//       "&",
+//       "*",
+//       "(",
+//       ")",
+//       "{",
+//       "}",
+//       "[",
+//       "]",
+//       "-",
+//       "+",
+//       "-",
+//       "=",
+//       ";",
+//       "'",
+//       ":",
+//       "/",
+//       ".",
+//       ",",
+//       "?",
+//       ">",
+//       "<",
+//       "~",
+//       "`",
+//       "±",
+//       "§",
+//     ];
+//     const output = translator.translateEnToMo(enInputArr);
+//     expect(output).toBe(
+//       "# # # # # # # # # # # # # # # # # # # # # # # # # # # # # #"
+//     );
+//   });
+
+//   it('should identify invalid characters amongst other letters by returning a "#"', () => {
+//     const enInputArr = [
+//       "H",
+//       "e",
+//       "l",
+//       "l",
+//       "o",
+//       " ",
+//       "W",
+//       "o",
+//       "r",
+//       "l",
+//       "d",
+//       "!",
+//     ];
+//     const output = translator.translateEnToMo(enInputArr);
+//     expect(output).toBe(".... . .-.. .-.. ---/.-- --- .-. .-.. -.. #");
+//   });
+
+//   // it should not allow a more than 5 dots or dashes per morse character' => {
+
+//   // })
+// });
+
+
+//////////AMEND ABOVE
 
 // each 'it' marks a separate test

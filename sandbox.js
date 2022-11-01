@@ -42,28 +42,40 @@
 // const test = checkValidMoEntry("");
 // console.log(test);
 
-const validateMoChar = (str) => {
-  // turn string into array and check if it matches
-  const moCharValidationArr = str.split("");
-  console.log(moCharValidationArr);
-  const validOrNot = moCharValidationArr.forEach((char) => {
-    if (char === "" || char === "." || char === "-") {
-      console.log("it's true");
-      return true;
-    } else {
-      return false;
-    }
-  });
-  // if (!str.includes("-") || !str.includes(".") || !str.includes("")) {
-  //   return false;
-  //   // } else if (str === "") {
-  //   //   return true;
-  // } else {
-  //   return false;
-  // }
-  console.log(validOrNot);
+// const validateMoChar = (str) => {
+//   // turn string into array and check if it matches
+//   const moCharValidationArr = str.split("");
+//   console.log(moCharValidationArr);
+//   const validOrNot = moCharValidationArr.forEach((char) => {
+//     if (char === "" || char === "." || char === "-") {
+//       console.log("it's true");
+//       return true;
+//     } else {
+//       return false;
+//     }
+//   });
+//   // if (!str.includes("-") || !str.includes(".") || !str.includes("")) {
+//   //   return false;
+//   //   // } else if (str === "") {
+//   //   //   return true;
+//   // } else {
+//   //   return false;
+//   // }
+//   console.log(validOrNot);
+// };
+
+// const validOrNot2 = validateMoChar(".....");
+
+// console.log(validOrNot2);
+
+const validMoChar = (input) => {
+  if (input === "." || input === "-" || input === " ") {
+    return true;
+  } else {
+    return false;
+  }
 };
 
-const validOrNot2 = validateMoChar(".....");
+const arr1 = [".", "-", ".", " "];
 
-console.log(validOrNot2);
+console.log(arr1.every(validMoChar));
