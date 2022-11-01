@@ -193,7 +193,8 @@ const validateEnEntry = (str) => {
 // try every() method
 const validateMoEntry = (moSplitCharArr) => {
   console.log(moSplitCharArr);
-  moSplitCharArr.every(validateMoChar);
+  const trueOrFalse = moSplitCharArr.every(validateMoChar);
+  return trueOrFalse;
 };
 
 const validateMoChar = (input) => {
@@ -202,7 +203,7 @@ const validateMoChar = (input) => {
   } else {
     return false;
   }
-}
+};
 
 //ACTIONS
 // page jumps when output appears
