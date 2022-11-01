@@ -79,7 +79,6 @@ export class Translator {
 
   translateLetter(letter) {
     let translatedLetter;
-    console.log(letter);
     let isAValidEntry = validateEnEntry(letter);
     if (isAValidEntry) {
       if (letter != " ") {
@@ -96,9 +95,7 @@ export class Translator {
           letter === "9"
         ) {
           const newWord = translator.changeNumberToWord(letter);
-          console.log(newWord);
           letter = newWord;
-          console.log(letter);
         }
         translatedLetter = this[letter];
       } else if (letter === " ") {
@@ -107,32 +104,24 @@ export class Translator {
     } else {
       translatedLetter = "#";
     }
-    console.log(translatedLetter);
     morseLettersArr.push(translatedLetter);
-    console.log(morseLettersArr);
   }
 
   translateEnToMo(enInputArr) {
     let outputHtml = "";
     enInputArr.forEach((letter) => {
       translator.translateLetter(letter.toLowerCase());
-      outputHtml = morseLettersArr.join(" ").replaceAll(" / ", "/"); 
+      outputHtml = morseLettersArr.join(" ").replaceAll(" / ", "/");
     });
     morseLettersArr = [];
     return outputHtml;
   }
 
   translateMorseChar(morseChar) {
-    let translatedMorseChar = "";
-    console.log(morseChar);
-    console.log(typeof morseChar);
     const isValidEntry = validateMoEntry(morseChar);
-    console.log(isValidEntry);
-
     if (morseChar != " ") {
       let nonMorseChar = "";
       if (isValidEntry) {
-        console.log("it's valid");
         for (let i = 0; i < this.morseAlphabetArr.length; i++) {
           if (this.morseAlphabetArr[i][0] === morseChar) {
             enLettersArr.push(this.morseAlphabetArr[i][1]);
@@ -143,19 +132,14 @@ export class Translator {
           enLettersArr.push(nonMorseChar);
         }
       } else {
-        console.log("it's not valid");
         nonMorseChar = "#";
         enLettersArr.push(nonMorseChar);
       }
-      return translatedMorseChar; // don't think we need this variable at all - check
     }
   }
 
   translateMotoEn(moInputArr) {
-    console.log(`translate mo to en function activated`);
-    console.log(moInputArr);
     let outputHtml = "";
-
     moInputArr.forEach((character) => {
       translator.translateMorseChar(character);
       outputHtml = enLettersArr.join("");
@@ -207,7 +191,6 @@ const validateEnEntry = (str) => {
 };
 
 const validateMoEntry = (moChar) => {
-  console.log(moChar);
   const moSplitCharArr = moChar.split("");
   const charIsValid = moSplitCharArr.every(validateMoChar);
   if (moChar.length < 6 && charIsValid === true) {
@@ -231,7 +214,6 @@ const validateMoChar = (input) => {
 
 //ACTIONS
 // fix page jumping when output appears
-//test for new letter function
+// tests - fix not a function error
 // - When should you use a class? When should you use functions? watch this video https://www.youtube.com/watch?v=PFmuCDHHpwk ALSO do the further reading in the 'OOP' notes.
-// - write tests
 // could I use switch instead of lengthy if statement?

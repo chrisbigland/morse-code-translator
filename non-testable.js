@@ -24,12 +24,13 @@ translBtn.addEventListener("click", (event) => {
     const enInputArr = inputText.split("");
     translation = translator.translateEnToMo(enInputArr); // result of the function gets saved as variable
   } else {
-    console.log("morse code radio checked");
     const moInputArr = inputText.split(" "); // turning string into arr
     translation = translator.translateMotoEn(moInputArr);
   }
   output.innerHTML = translation;
 });
+
+//// CODE FOR MORSE SOUND    CODE FOR MORSE SOUND    CODE FOR MORSE SOUND    CODE FOR MORSE SOUND    CODE FOR MORSE SOUND    CODE FOR MORSE SOUND    CODE FOR MORSE SOUND
 
 const playDot = () => {
   dotSound.play();
@@ -169,6 +170,7 @@ morseSoundBtn.addEventListener("click", (event) => {
 
 // document.querySelector("#test-btn").addEventListener("click", playSounds(outputArr));
 
+//// BUTTONS      BUTTONS      BUTTONS      BUTTONS      BUTTONS      BUTTONS      BUTTONS      BUTTONS
 morseSoundBtn.addEventListener("click", (event) => {
   playMorseSound(output.innerHTML);
 });

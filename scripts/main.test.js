@@ -1,4 +1,3 @@
-// import { it } from "node:test";
 import {
   translateMoToEn,
   translateMorseChar,
@@ -200,7 +199,7 @@ describe("Positive MO to EN Tests", () => {
       "-.",
       "-..",
     ];
-    const output = translator.translateEnToMo(moInputArr);
+    const output = translator.translateMoToEn(moInputArr);
     expect(output).toBe("hello friend");
   });
 
@@ -298,7 +297,7 @@ describe("Positive MO to EN Tests", () => {
       ".-..",
       "-..",
     ];
-    const output = translator.translateEnToMo(enInputArr);
+    const output = translator.translateMoToEn(moInputArr);
     expect(output).toBe("there are 195 countries in the world");
   });
 
@@ -315,7 +314,7 @@ describe("Positive MO to EN Tests", () => {
       "---..",
       "-----",
     ];
-    const output = translator.translateEnToMo(numbersArr);
+    const output = translator.translateMoToEn(numbersArr);
     expect(output).toBe("0123456789");
   });
 });
@@ -391,10 +390,6 @@ describe("Negative EN to MO Tests", () => {
     const output = translator.translateEnToMo(enInputArr);
     expect(output).toBe(".... . .-.. .-.. ---/.-- --- .-. .-.. -.. #");
   });
-
-  // it should not allow a more than 5 dots or dashes per morse character' => {
-
-  // })
 });
 
 ///AMEND BELOW
