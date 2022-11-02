@@ -2,6 +2,9 @@ import {
   translateMoToEn,
   translateMorseChar,
   translateEnToMo,
+  validateMoChar,
+  validateEnEntry,
+  validateMoEntry,
   translateLetter,
   Translator,
   translator,
@@ -163,7 +166,7 @@ describe("Positive EN to MO Tests", () => {
     ];
     const output = translator.translateEnToMo(enInputArr);
     expect(output).toBe(
-      "- .... . .-. ./.- .-. ./.---- ----- ...../-.-. --- ..- -. - .-. .. . .../.. -./- .... ./.-- --- .-. .-.. -.."
+      "- .... . .-. ./.- .-. ./.---- ----. ...../-.-. --- ..- -. - .-. .. . .../.. -./- .... ./.-- --- .-. .-.. -.."
     );
   });
 
@@ -171,7 +174,7 @@ describe("Positive EN to MO Tests", () => {
     const numbersArr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     const output = translator.translateEnToMo(numbersArr);
     expect(output).toBe(
-      "----- .---- ..--- ...-- ....- ..... -.... --... ---.. -----"
+      "----- .---- ..--- ...-- ....- ..... -.... --... ---.. ----."
     );
   });
 });
@@ -191,7 +194,7 @@ describe("Positive MO to EN Tests", () => {
       ".-..",
       ".-..",
       "---",
-      " ",
+      "  ",
       "..-.",
       ".-.",
       "..",
@@ -208,43 +211,43 @@ describe("Positive MO to EN Tests", () => {
       "-",
       "....",
       ".",
-      " ",
+      "  ",
       "--.-",
       "..-",
       "..",
       "-.-.",
       "-.-",
-      " ",
+      "  ",
       "-...",
       ".-.",
       "---",
       ".--",
       "-.",
-      " ",
+      "  ",
       "..-.",
       "---",
       "-..-",
-      " ",
+      "  ",
       ".---",
       "..-",
       "--",
       ".--.",
       "...",
-      " ",
+      "  ",
       "---",
       "...-",
       ".",
       ".-.",
-      " ",
+      "  ",
       "-",
       "....",
       ".",
-      " ",
+      "  ",
       ".-..",
       ".-",
       "--..",
       "-.--",
-      " ",
+      "  ",
       "-..",
       "---",
       "--.",
@@ -270,10 +273,11 @@ describe("Positive MO to EN Tests", () => {
       ".-",
       ".-.",
       ".",
+      "  ",
       ".----",
-      "-----",
+      "----.",
       ".....",
-      " ",
+      "  ",
       "-.-.",
       "---",
       "..-",
@@ -283,14 +287,14 @@ describe("Positive MO to EN Tests", () => {
       "..",
       ".",
       "...",
-      " ",
+      "  ",
       "..",
       "-.",
-      " ",
+      "  ",
       "-",
       "....",
       ".",
-      " ",
+      "  ",
       ".--",
       "---",
       ".-.",
@@ -312,7 +316,7 @@ describe("Positive MO to EN Tests", () => {
       "-....",
       "--...",
       "---..",
-      "-----",
+      "----.",
     ];
     const output = translator.translateMoToEn(numbersArr);
     expect(output).toBe("0123456789");
@@ -323,7 +327,7 @@ describe("Positive MO to EN Tests", () => {
 describe("Negative EN to MO Tests", () => {
   it('it should translate " " as "/"', () => {
     const enInputArr = [" "];
-    const output = translator.translateEntoMo(enInputArr);
+    const output = translator.translateEnToMo(enInputArr);
     expect(output).toBe("/");
   });
 
@@ -348,15 +352,12 @@ describe("Negative EN to MO Tests", () => {
       "}",
       "[",
       "]",
-      "-",
       "+",
-      "-",
       "=",
       ";",
       "'",
       ":",
       "/",
-      ".",
       ",",
       "?",
       ">",
@@ -368,7 +369,7 @@ describe("Negative EN to MO Tests", () => {
     ];
     const output = translator.translateEnToMo(enInputArr);
     expect(output).toBe(
-      "# # # # # # # # # # # # # # # # # # # # # # # # # # # # # #"
+      "# # # # # # # # # # # # # # # # # # # # # # # # # # #"
     );
   });
 
@@ -392,11 +393,10 @@ describe("Negative EN to MO Tests", () => {
   });
 });
 
-///AMEND BELOW
 describe("Negative MO to EN Tests", () => {
   it('it should translate "  " as " "', () => {
     const moInputArr = [" "];
-    const output = translator.translateMotoEn(moInputArr);
+    const output = translator.translateMoToEn(moInputArr);
     expect(output).toBe(" ");
   });
 
@@ -421,15 +421,12 @@ describe("Negative MO to EN Tests", () => {
       "}",
       "[",
       "]",
-      "-",
       "+",
-      "-",
       "=",
       ";",
       "'",
       ":",
       "/",
-      ".",
       ",",
       "?",
       ">",
@@ -440,9 +437,7 @@ describe("Negative MO to EN Tests", () => {
       "§",
     ];
     const output = translator.translateMoToEn(moInputArr);
-    expect(output).toBe(
-      "# # # # # # # # # # # # # # # # # # # # # # # # # # # # # #"
-    );
+    expect(output).toBe("###########################");
   });
 
   it('should identify invalid characters amongst other letters by returning a "#"', () => {
@@ -529,30 +524,31 @@ describe("changeNumberToWord method tests", () => {
   });
 });
 
-describe("En to Mo word validation function tests", () => {
-  it("should return true if fewer than 5 dots or dashes per morse character are entered", () => {
-    const moChar = ".-";
-    const output = validateEnEntry(moChar);
-    expect(output).toBe(true);
-  });
-
-  it("should return false if more than 5 dots or dashes per morse character are entered", () => {
-    const moChar = ".-.-.-";
-    const output = validateEnEntry(moChar);
-    expect(output).toBe(false);
-  });
-});
+// describe("En to Mo word validation function tests", () => {});
+// WRITE TESTS HERE
 
 describe("Mo character validation function tests", () => {
   it("should return true if only dots, dashes and spaces are entered", () => {
     const input = ".- ";
-    const output = validMoChar(input);
+    const output = validateMoChar(input);
     expect(output).toBe(true);
   });
 
   it("should return false if anything but dots, dashes and spaces are entered", () => {
     const input = "abc";
-    const output = validMoChar(input);
+    const output = validateMoChar(input);
+    expect(output).toBe(false);
+  });
+
+  it("should return true if fewer than 5 dots or dashes per morse character are entered", () => {
+    const moChar = ".-";
+    const output = validateMoEntry(moChar);
+    expect(output).toBe(true);
+  });
+
+  it("should return false if more than 5 dots or dashes per morse character are entered", () => {
+    const moChar = ".-.-.-";
+    const output = validateMoEntry(moChar);
     expect(output).toBe(false);
   });
 });

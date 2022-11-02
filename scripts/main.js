@@ -35,7 +35,7 @@ export class Translator {
     this.six = "-....";
     this.seven = "--...";
     this.eight = "---..";
-    this.nine = "-----";
+    this.nine = "----.";
 
     this.morseAlphabetArr = [
       [".-", "a"],
@@ -138,7 +138,7 @@ export class Translator {
     }
   }
 
-  translateMotoEn(moInputArr) {
+  translateMoToEn(moInputArr) {
     let outputHtml = "";
     moInputArr.forEach((character) => {
       translator.translateMorseChar(character);
@@ -180,7 +180,7 @@ export const translator = new Translator();
 let enLettersArr = [];
 let morseLettersArr = [];
 
-const validateEnEntry = (str) => {
+export const validateEnEntry = (str) => {
   const containsLetters = /[a-zA-Z]/.test(str);
   const containsNumbers = /\d/.test(str);
   if (containsLetters === true || containsNumbers === true || str === " ") {
@@ -190,7 +190,7 @@ const validateEnEntry = (str) => {
   }
 };
 
-const validateMoEntry = (moChar) => {
+export const validateMoEntry = (moChar) => {
   const moSplitCharArr = moChar.split("");
   const charIsValid = moSplitCharArr.every(validateMoChar);
   if (moChar.length < 6 && charIsValid === true) {
@@ -204,7 +204,7 @@ const validateMoEntry = (moChar) => {
   }
 };
 
-const validateMoChar = (input) => {
+export const validateMoChar = (input) => {
   if (input === "." || input === "-" || input === " ") {
     return true;
   } else {
@@ -214,6 +214,9 @@ const validateMoChar = (input) => {
 
 //ACTIONS
 // fix page jumping when output appears
-// tests - fix not a function error
+// sound error
+// tests - make them pass. Mainly spacing issues and alert issue
+// branch out audio function
 // - When should you use a class? When should you use functions? watch this video https://www.youtube.com/watch?v=PFmuCDHHpwk ALSO do the further reading in the 'OOP' notes.
 // could I use switch instead of lengthy if statement?
+// write EN TO MO WORD VALIDATION TESTS

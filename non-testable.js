@@ -25,7 +25,7 @@ translBtn.addEventListener("click", (event) => {
     translation = translator.translateEnToMo(enInputArr); // result of the function gets saved as variable
   } else {
     const moInputArr = inputText.split(" "); // turning string into arr
-    translation = translator.translateMotoEn(moInputArr);
+    translation = translator.translateMoToEn(moInputArr);
   }
   output.innerHTML = translation;
 });
@@ -34,6 +34,10 @@ translBtn.addEventListener("click", (event) => {
 
 const playDot = () => {
   dotSound.play();
+};
+
+const playDash = () => {
+  dashSound.play();
 };
 // •	SET TIME OUT – 100milliseconds pause. Interval in between every time it plays.
 // const myDotTimeout = () => {
@@ -67,6 +71,9 @@ const playMorseSound = (outputValue) => {
     if (char === ".") {
       console.log("dot found");
       playDot();
+    } else if (char === "-") {
+      console.log("dash found");
+      playDash();
     }
   });
 };
@@ -158,13 +165,19 @@ morseSoundBtn.addEventListener("click", (event) => {
     }
   };
 
+  // dotSound.onended = function () {
+  //   customPlay();
+  // };
+  // dashSound.onended = function () {
+  //   customPlay();
+  // };
   dotSound.addEventListener("ended", customPlay);
   dashSound.addEventListener("ended", customPlay);
 
-  // dotSound.currentTime = 0;
-  // dotSound.loop = false;
-  // dashSound.currentTime = 0;
-  // dashSound.loop = false;
+  dotSound.currentTime = 0;
+  dotSound.loop = false;
+  dashSound.currentTime = 0;
+  dashSound.loop = false;
   customPlay();
 });
 
