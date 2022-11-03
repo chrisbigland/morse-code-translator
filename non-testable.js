@@ -32,13 +32,13 @@ translBtn.addEventListener("click", (event) => {
 
 //// CODE FOR MORSE SOUND    CODE FOR MORSE SOUND    CODE FOR MORSE SOUND    CODE FOR MORSE SOUND    CODE FOR MORSE SOUND    CODE FOR MORSE SOUND    CODE FOR MORSE SOUND
 
-const playDot = () => {
-  dotSound.play();
-};
+// const playDot = () => {
+//   dotSound.play();
+// };
 
-const playDash = () => {
-  dashSound.play();
-};
+// const playDash = () => {
+//   dashSound.play();
+// };
 // •	SET TIME OUT – 100milliseconds pause. Interval in between every time it plays.
 // const myDotTimeout = () => {
 //   setTimeout(playDot, 2000);
@@ -65,18 +65,18 @@ const playDash = () => {
 // };
 // timeOut();
 
-const playMorseSound = (outputValue) => {
-  const outputArr = outputValue.split("");
-  outputArr.forEach((char) => {
-    if (char === ".") {
-      console.log("dot found");
-      playDot();
-    } else if (char === "-") {
-      console.log("dash found");
-      playDash();
-    }
-  });
-};
+// const playMorseSound = (outputValue) => {
+//   const outputArr = outputValue.split("");
+//   outputArr.forEach((char) => {
+//     if (char === ".") {
+//       console.log("dot found");
+//       playDot();
+//     } else if (char === "-") {
+//       console.log("dash found");
+//       playDash();
+//     }
+//   });
+// };
 
 //   setTimeout(function () {
 //     // dotSound.play();
@@ -146,40 +146,40 @@ const playMorseSound = (outputValue) => {
 //   customPlay();
 // });
 
-morseSoundBtn.addEventListener("click", (event) => {
-  const outputArr = output.innerHTML.split("");
-  let counter = 0;
+// morseSoundBtn.addEventListener("click", (event) => {
+//   const outputArr = output.innerHTML.split("");
+//   let counter = 0;
 
-  const customPlay = () => {
-    if (outputArr[counter] == ".") {
-      dotSound.play();
-    } else if (outputArr[counter] == "-") {
-      dashSound.play();
-    }
+//   const customPlay = () => {
+//     if (outputArr[counter] == ".") {
+//       dotSound.play();
+//     } else if (outputArr[counter] == "-") {
+//       dashSound.play();
+//     }
 
-    counter++;
+//     counter++;
 
-    if (counter == outputArr.length - 1) {
-      dotSound.removeEventListener("ended", customPlay);
-      dashSound.removeEventListener("ended", customPlay);
-    }
-  };
+//     if (counter == outputArr.length - 1) {
+//       dotSound.removeEventListener("ended", customPlay);
+//       dashSound.removeEventListener("ended", customPlay);
+//     }
+//   };
 
-  // dotSound.onended = function () {
-  //   customPlay();
-  // };
-  // dashSound.onended = function () {
-  //   customPlay();
-  // };
-  dotSound.addEventListener("ended", customPlay);
-  dashSound.addEventListener("ended", customPlay);
+// dotSound.onended = function () {
+//   customPlay();
+// };
+// dashSound.onended = function () {
+//   customPlay();
+//   // };
+//   dotSound.addEventListener("ended", customPlay);
+//   dashSound.addEventListener("ended", customPlay);
 
-  dotSound.currentTime = 0;
-  dotSound.loop = false;
-  dashSound.currentTime = 0;
-  dashSound.loop = false;
-  customPlay();
-});
+//   dotSound.currentTime = 0;
+//   dotSound.loop = false;
+//   dashSound.currentTime = 0;
+//   dashSound.loop = false;
+//   customPlay();
+// });
 
 // document.querySelector("#test-btn").addEventListener("click", playSounds(outputArr));
 
