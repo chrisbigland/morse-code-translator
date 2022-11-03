@@ -30,7 +30,6 @@ translBtn.addEventListener("click", (event) => {
   output.innerHTML = translation;
 });
 
-// document.querySelector("#test-btn").addEventListener("click", playSounds(outputArr));
 
 //// BUTTONS      BUTTONS      BUTTONS      BUTTONS      BUTTONS      BUTTONS      BUTTONS      BUTTONS
 morseSoundBtn.addEventListener("click", (event) => {

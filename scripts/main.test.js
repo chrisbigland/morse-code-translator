@@ -524,8 +524,25 @@ describe("changeNumberToWord method tests", () => {
   });
 });
 
-// describe("En to Mo word validation function tests", () => {});
-// WRITE TESTS HERE
+describe("En to Mo word validation function tests", () => {
+  it("should return as true if a letter is entered", () => {
+    const inputStr = "d";
+    const output = validateEnEntry(inputStr);
+    expect(output).toBe(true);
+  });
+
+  it("should return as true if a number is entered", () => {
+    const inputStr = "4";
+    const output = validateEnEntry(inputStr);
+    expect(output).toBe(true);
+  });
+
+  it("should return as false if invalid characters are entered", () => {
+    const inputStr = "%";
+    const output = validateEnEntry(inputStr);
+    expect(output).toBe(false);
+  });
+});
 
 describe("Mo character validation function tests", () => {
   it("should return true if only dots, dashes and spaces are entered", () => {
