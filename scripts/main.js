@@ -215,6 +215,7 @@ export const validateMoChar = (input) => {
 //ACTIONS
 // fix page jumping when output appears
 // sound error
+// create readme
 // tests - make them pass. Mainly spacing issues and alert issue
 // branch out audio function
 // - When should you use a class? When should you use functions? watch this video https://www.youtube.com/watch?v=PFmuCDHHpwk ALSO do the further reading in the 'OOP' notes.
