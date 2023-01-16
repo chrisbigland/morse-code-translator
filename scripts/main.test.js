@@ -5,8 +5,6 @@ import {
   translator,
 } from "./main.js";
 
-// future actions - check tests for spacing issue - functionality working on browser.
-
 describe("Positive EN to MO Tests", () => {
   it('should translate "a" to ".-"', () => {
     const enInputArr = ["a"];

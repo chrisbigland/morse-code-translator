@@ -15,19 +15,19 @@ enSelection.checked = true;
 
 translBtn.addEventListener("click", (event) => {
   const inputText = input.value;
-  const translator = new Translator(); // do I need to declare this each time?
+  const translator = new Translator();
   let translation = "";
   if (enSelection.checked) {
     const enInputArr = inputText.split("");
-    translation = translator.translateEnToMo(enInputArr); // result of the function gets saved as variable
+    translation = translator.translateEnToMo(enInputArr); 
   } else {
-    const moInputArr = inputText.split(" "); // turning string into arr
+    const moInputArr = inputText.split(" "); 
     translation = translator.translateMoToEn(moInputArr);
   }
   output.innerHTML = translation;
 });
 
-//// BUTTONS      BUTTONS      BUTTONS      BUTTONS      BUTTONS      BUTTONS      BUTTONS      BUTTONS
+//// BUTTONS  
 dashBtn.addEventListener("click", () => {
   input.value += "-";
   dashSound.play();
